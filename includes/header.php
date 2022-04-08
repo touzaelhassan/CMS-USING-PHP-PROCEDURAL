@@ -12,5 +12,6 @@
         <?php endforeach; ?>
       </ul>
     </nav>
+    <div class="admin"><a href="./admin/index.php">ADMIN</a></div>
   </div>
 </header>
