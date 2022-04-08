@@ -1,6 +1,13 @@
 <!-- Start Categories Functions -->
 <?php
 
+function create_category($category_title)
+{
+  global $connection;
+  $sql = "INSERT INTO categories (category_title) VALUES ('$category_title')";
+  mysqli_query($connection, $sql);
+}
+
 function get_categories()
 {
   global $connection;
