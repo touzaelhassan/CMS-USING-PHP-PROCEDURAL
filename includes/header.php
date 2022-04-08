@@ -2,7 +2,7 @@
 
 <header class="header">
   <div class="header__content">
-    <div class="logo"><a class="logo__link" href="#">CMS</a></div>
+    <div class="logo"><a class="logo__link" href="index.php">CMS</a></div>
     <nav class="navigation">
       <ul class="nav__list">
         <?php foreach ($categories as $category) : ?>

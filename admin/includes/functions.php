@@ -25,3 +25,17 @@ function get_posts()
 
 ?>
 <!-- End Posts Functions -->
+
+<!-- Start Search Function -->
+<?php
+
+function search($keyword)
+{
+  global $connection;
+  $sql = "SELECT * FROM posts WHERE post_tags LIKE '%$keyword%'";
+  $query = mysqli_query($connection, $sql);
+  return mysqli_fetch_all($query, MYSQLI_ASSOC);
+}
+
+?>
+<!-- End Search Function -->

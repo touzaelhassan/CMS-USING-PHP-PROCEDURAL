@@ -8,6 +8,7 @@
 
 body {
   margin: 20px;
+  background-color: #fafafa;
 }
 
 ul {
@@ -127,7 +128,51 @@ a {
 /* Start Sidebar Section */
 .sidebar {
   border: 3px solid green;
+  padding: 20px;
   width: 280px;
+}
+
+.sidebar__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar__search {
+  border: 3px solid blue;
+  padding: 20px;
+  text-align: center;
+}
+
+.search__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search__input {
+  border: 2px solid #ddd;
+  padding: 4px;
+}
+
+.search__btn {
+  color: #fff;
+  border: none;
+  border: 2px solid #0d6efd;
+  padding: 5px 0;
+  background-color: #0d6efd;
+}
+
+.sidebar__login {
+  border: 3px solid blue;
+  padding: 20px;
+  text-align: center;
+}
+
+.sidebar__categories {
+  border: 3px solid blue;
+  padding: 20px;
+  text-align: center;
 }
 /* End Sidebar Section */
 
