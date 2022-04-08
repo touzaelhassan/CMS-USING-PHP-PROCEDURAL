@@ -156,11 +156,16 @@ a {
 }
 
 .search__btn {
-  color: #fff;
   border: none;
   border: 2px solid #0d6efd;
   padding: 5px 0;
+  color: #fff;
   background-color: #0d6efd;
+}
+
+.search__btn:hover {
+  color: #0d6efd;
+  background-color: #fff;
 }
 
 .sidebar__login {
@@ -170,6 +175,36 @@ a {
 }
 
 .sidebar__categories {
+  border: 3px solid blue;
+  padding: 20px;
+}
+
+.categories__list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.categories__item {
+  border: 1px solid #e1e1e1;
+  width: calc(50% - 5px);
+  text-align: center;
+}
+
+.categories__link {
+  display: block;
+  padding: 5px 0;
+  color: #444;
+  font-size: 14px;
+}
+
+.categories__link:hover {
+  color: #fff;
+  background-color: #0d6efd;
+}
+
+.sidebar__recent-posts {
   border: 3px solid blue;
   padding: 20px;
   text-align: center;
