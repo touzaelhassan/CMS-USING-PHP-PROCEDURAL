@@ -65,8 +65,62 @@ a {
 
 /* Start Posts Section */
 .posts {
-  border: 3px solid green;
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 3px solid green;
+  padding: 20px;
+}
+
+.posts__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 3px solid blue;
+  padding: 20px;
+}
+
+.post {
+  border: 3px solid coral;
+  padding: 20px;
+}
+
+.post__title {
+  margin: 0;
+}
+
+.post__author {
+  margin: 0;
+}
+
+.post__date {
+  margin: 0;
+}
+
+.post__image {
+  width: 500px;
+}
+
+.post__image img {
+  width: 100%;
+}
+
+.post__content {
+  margin: 0;
+}
+
+.post__link {
+  color: #0d6efd;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.posts__pagination {
+  border: 3px solid blue;
+  padding: 20px;
+  text-align: center;
 }
 /* End Posts Section */
 
