@@ -16,6 +16,13 @@ function get_categories()
   return mysqli_fetch_all($query, MYSQLI_ASSOC);
 }
 
+function delete_category_by_id($category_id)
+{
+  global $connection;
+  $sql = "DELETE FROM categories WHERE category_id = $category_id";
+  mysqli_query($connection, $sql);
+}
+
 ?>
 <!-- End Categories Functions -->
 

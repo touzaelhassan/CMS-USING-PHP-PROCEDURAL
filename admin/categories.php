@@ -1,6 +1,5 @@
   <?php include './includes/head.php' ?>
 
-  <?php $categories = get_categories(); ?>
 
   <?php
 
@@ -12,6 +11,18 @@
     } else {
       $error_message = "This field should not be empty";
     }
+  }
+
+  ?>
+
+  <?php $categories = get_categories(); ?>
+
+  <?php
+
+  if (isset($_GET["category_id"])) {
+    $category_id = $_GET["category_id"];
+    delete_category_by_id($category_id);
+    header("location: categories.php");
   }
 
   ?>
@@ -55,6 +66,7 @@
                 <tr>
                   <th>Category Id</th>
                   <th>Category Title</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -62,6 +74,11 @@
                   <tr>
                     <td><?php echo $category["category_id"]; ?></td>
                     <td><?php echo $category["category_title"]; ?></td>
+                    <td>
+                      <a class="btn btn-danger btn-sm" href="categories.php?category_id=<?php echo $category["category_id"]; ?>">
+                        DELETE
+                      </a>
+                    </td>
                   </tr>
                 <?php endforeach ?>
               </tbody>
