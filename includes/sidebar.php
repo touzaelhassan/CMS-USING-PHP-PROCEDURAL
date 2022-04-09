@@ -12,7 +12,7 @@
     <ul class="categories__list">
       <?php foreach ($categories as $category) : ?>
         <li class="categories__item">
-          <a href="#" class="categories__link"><?php echo $category["category_title"]; ?></a>
+          <a href="category.php?category_id=<?php echo $category["category_id"]; ?>" class="categories__link"><?php echo $category["category_title"]; ?></a>
         </li>
       <?php endforeach ?>
     </ul>

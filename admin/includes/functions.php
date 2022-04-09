@@ -69,6 +69,14 @@ function get_post_by_id($post_id)
   return mysqli_fetch_assoc($query);
 }
 
+function get_posts_by_category_id($category_id)
+{
+  global $connection;
+  $sql = "SELECT * FROM posts WHERE category_id = $category_id";
+  $query = mysqli_query($connection, $sql);
+  return mysqli_fetch_all($query, MYSQLI_ASSOC);
+}
+
 function
 update_post($post_id, $category_id, $post_author, $post_title, $post_content, $post_image, $post_tags, $post_status)
 {

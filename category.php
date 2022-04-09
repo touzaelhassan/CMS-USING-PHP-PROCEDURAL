@@ -1,6 +1,10 @@
 <?php include './includes/head.php' ?>
 
-<?php $posts = get_posts(); ?>
+<?php
+if (isset($_GET["category_id"]))
+  $category_id = $_GET["category_id"];
+$posts = get_posts_by_category_id($category_id);
+?>
 
 <?php include './includes/header.php' ?>
 
