@@ -16,12 +16,28 @@ function get_categories()
   return mysqli_fetch_all($query, MYSQLI_ASSOC);
 }
 
-function delete_category_by_id($category_id)
+function get_category_by_id($category_id)
+{
+  global $connection;
+  $sql = "SELECT * FROM categories WHERE category_id = $category_id";
+  $query = mysqli_query($connection, $sql);
+  return mysqli_fetch_assoc($query);
+}
+
+function update_category($category_id, $category_title)
+{
+  global $connection;
+  $sql = "UPDATE categories SET category_title = '$category_title' WHERE category_id = $category_id";
+  mysqli_query($connection, $sql);
+}
+
+function delete_category($category_id)
 {
   global $connection;
   $sql = "DELETE FROM categories WHERE category_id = $category_id";
   mysqli_query($connection, $sql);
 }
+
 
 ?>
 <!-- End Categories Functions -->
