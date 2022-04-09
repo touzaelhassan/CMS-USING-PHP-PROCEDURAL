@@ -11,7 +11,8 @@
     <div class="dashboard__title">
       <h4>ADMIN DASHBOARD</h4>
     </div>
-    <div class="dashboard__content"></div>
+    <div class="dashboard__content">
+    </div>
   </div>
 </div>
 

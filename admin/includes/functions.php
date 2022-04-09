@@ -44,6 +44,15 @@ function delete_category($category_id)
 <!-- Start Posts Functions -->
 <?php
 
+function create_post($category_id, $post_author, $post_title, $post_content, $post_image, $post_tags, $post_status, $post_date)
+{
+  global $connection;
+
+  $sql = "INSERT INTO posts(category_id, post_author, post_title, post_content, post_image, post_tags, post_status, post_date) VALUES ('$category_id','$post_author','$post_title','$post_content','$post_image','$post_tags','$post_status','$post_date')";
+
+  mysqli_query($connection, $sql);
+}
+
 function get_posts()
 {
   global $connection;
