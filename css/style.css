@@ -130,6 +130,26 @@ a {
 }
 /* End Posts Section */
 
+/* Start Single Post Section */
+.single__post {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 3px solid green;
+  padding: 20px;
+}
+
+.single__post__content {
+  border: 3px solid blue;
+  padding: 20px;
+}
+
+.single__post__comments {
+  border: 3px solid blue;
+  padding: 20px;
+}
+/* End Single Post Section */
+
 /* Start Sidebar Section */
 .sidebar {
   border: 3px solid green;
