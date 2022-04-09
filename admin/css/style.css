@@ -92,8 +92,9 @@ a {
 }
 
 .dashboard__content {
-  border: 3px solid blue;
   flex: 1;
+  border: 3px solid blue;
+  padding: 20px;
 }
 /* End Dashboard Section */
 
@@ -101,7 +102,6 @@ a {
 .dashboard__categories {
   display: flex;
   gap: 20px;
-  padding: 20px;
 }
 
 .categories__forms {
@@ -149,6 +149,12 @@ a {
   cursor: pointer;
 }
 /* End Dashboard Categories Section */
+
+/* Start Dashboard Posts Section */
+.table__image {
+  width: 100px;
+}
+/* End Dashboard Posts Section */
 
 /* Start Sidebar Section */
 .sidebar {
