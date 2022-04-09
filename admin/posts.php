@@ -10,6 +10,16 @@
 
   ?>
 
+  <?php
+
+  if (isset($_GET["delete"])) {
+    $post_id = $_GET["delete"];
+    delete_post($post_id);
+    header("location: posts.php");
+  }
+
+  ?>
+
   <?php include './includes/header.php' ?>
 
   <div class="page">

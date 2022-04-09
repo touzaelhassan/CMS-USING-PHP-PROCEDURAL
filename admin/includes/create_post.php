@@ -16,15 +16,15 @@ if (isset($_POST["create_post"])) {
   $post_date = date("d-m-y");
 
   move_uploaded_file($post_image_temp, "../images/$post_image");
-
-  create_post($category_id, $post_author, $post_title, $post_content, $post_image, $post_tags, $post_status, $post_date);
+  create_post($category_id, $post_author, $post_title, $post_content, $post_image, $post_tags, $post_status);
+  header("location: posts.php");
 }
 
 ?>
 
 <?php $categories = get_categories(); ?>
 
-<h2 class="posts__title">Add Post</h2>
+<h4 class="posts__title pb-3">ADD POST</h4>
 <div class="posts__content">
   <form action="" method="POST" class="post__form" enctype="multipart/form-data">
     <div class="form-group">
@@ -44,10 +44,6 @@ if (isset($_POST["create_post"])) {
       <input type="text" class="form-control" name="post_title">
     </div>
     <div class="form-group">
-      <label>Post Content</label>
-      <textarea name="post_content" class="form-control" id="" cols="30" rows="10"></textarea>
-    </div>
-    <div class="form-group">
       <label>Post Image</label>
       <input type="file" class="form-control" name="image">
     </div>
@@ -58,6 +54,10 @@ if (isset($_POST["create_post"])) {
     <div class="form-group">
       <label>Post Status</label>
       <input type="text" class="form-control" name="post_status">
+    </div>
+    <div class="form-group">
+      <label>Post Content</label>
+      <textarea name="post_content" class="form-control" id="" cols="30" rows="10"></textarea>
     </div>
     <div class="form-group  w-100">
       <input type="submit" value="PUBLISH" class="btn btn-primary" name="create_post">

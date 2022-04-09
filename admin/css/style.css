@@ -154,13 +154,28 @@ a {
 .table__image {
   width: 100px;
 }
+
+.post__form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.post__form div {
+  width: calc(50% - 20px);
+}
+
+.post__form div label {
+  margin-bottom: 7px;
+}
+
 /* End Dashboard Posts Section */
 
 /* Start Sidebar Section */
 .sidebar {
   border: 3px solid green;
   padding: 20px;
-  width: 250px;
+  width: 160px;
 }
 
 .sidebar__list {

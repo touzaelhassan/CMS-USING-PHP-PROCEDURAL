@@ -6,7 +6,7 @@
       <span> Posts</span>
       <ul class="posts__list">
         <li class="posts__item"><a href="posts.php">View Posts</a></li>
-        <li class="posts__item"><a href="posts.php">Add Post</a></li>
+        <li class="posts__item"><a href="posts.php?source=create_post">Add Post</a></li>
       </ul>
     </li>
     <li class="sidebar__item"><a class="sidebar__link" href="#">Comments</a></li>

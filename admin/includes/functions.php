@@ -44,11 +44,11 @@ function delete_category($category_id)
 <!-- Start Posts Functions -->
 <?php
 
-function create_post($category_id, $post_author, $post_title, $post_content, $post_image, $post_tags, $post_status, $post_date)
+function create_post($category_id, $post_author, $post_title, $post_content, $post_image, $post_tags, $post_status)
 {
   global $connection;
 
-  $sql = "INSERT INTO posts(category_id, post_author, post_title, post_content, post_image, post_tags, post_status, post_date) VALUES ('$category_id','$post_author','$post_title','$post_content','$post_image','$post_tags','$post_status','$post_date')";
+  $sql = "INSERT INTO posts(category_id, post_author, post_title, post_content, post_image, post_tags, post_status, post_date) VALUES ('$category_id','$post_author','$post_title','$post_content','$post_image','$post_tags','$post_status',now())";
 
   mysqli_query($connection, $sql);
 }
@@ -59,6 +59,32 @@ function get_posts()
   $sql = "SELECT * FROM posts";
   $query = mysqli_query($connection, $sql);
   return mysqli_fetch_all($query, MYSQLI_ASSOC);
+}
+
+function get_post_by_id($post_id)
+{
+  global $connection;
+  $sql = "SELECT * FROM posts WHERE post_id = $post_id";
+  $query = mysqli_query($connection, $sql);
+  return mysqli_fetch_assoc($query);
+}
+
+function
+update_post($post_id, $category_id, $post_author, $post_title, $post_content, $post_image, $post_tags, $post_status)
+{
+  global $connection;
+
+  $sql = "UPDATE posts SET category_id='$category_id', post_author='$post_author', post_title ='$post_title',post_content='$post_content',post_image = '$post_image',post_tags='$post_tags', post_status='$post_status', post_date= now() WHERE post_id = $post_id ";
+
+  mysqli_query($connection, $sql);
+}
+
+
+function delete_post($post_id)
+{
+  global $connection;
+  $sql = "DELETE FROM posts WHERE post_id = $post_id";
+  mysqli_query($connection, $sql);
 }
 
 ?>
