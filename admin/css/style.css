@@ -166,6 +166,11 @@ a {
 .sidebar__link {
   display: block;
 }
+
+.posts__list {
+  padding-left: 32px;
+  list-style: circle;
+}
 /* End Sidebar Section */
 
 /* Start Footer Section */

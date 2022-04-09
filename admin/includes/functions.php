@@ -38,7 +38,6 @@ function delete_category($category_id)
   mysqli_query($connection, $sql);
 }
 
-
 ?>
 <!-- End Categories Functions -->
 
