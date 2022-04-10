@@ -7,6 +7,21 @@ if (isset($_GET["post_id"])) {
 }
 ?>
 
+
+<?php
+
+if (isset($_POST["create_comment"])) {
+  $post_id =  $_GET["post_id"];
+  $comment_author = $_POST["comment_author"];
+  $comment_email = $_POST["comment_email"];
+  $comment_content = $_POST["comment_content"];
+
+  create_comment($post_id, $comment_author, $comment_email, $comment_content);
+}
+
+
+?>
+
 <?php include './includes/header.php' ?>
 
 <div class="page">
@@ -35,7 +50,7 @@ if (isset($_GET["post_id"])) {
             <input type="email" class="form-control" name="comment_email">
           </div>
           <div class="form-group">
-            <label>Comment</label>
+            <label>Your comment</label>
             <textarea name="comment_content" class="form-control" cols="20" rows="6"></textarea>
           </div>
           <div class="form-group w-25">
