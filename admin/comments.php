@@ -2,6 +2,23 @@
 
   <?php $comments = get_comments(); ?>
 
+
+  <?php
+
+  if (isset($_GET["approve"])) {
+    $comment_id = $_GET["approve"];
+    approve_comment($comment_id);
+    header("location: comments.php");
+  }
+
+  if (isset($_GET["unapprove"])) {
+    $comment_id = $_GET["unapprove"];
+    unapprove_comment($comment_id);
+    header("location: comments.php");
+  }
+
+  ?>
+
   <?php
 
   if (isset($_GET["delete"])) {
@@ -50,8 +67,8 @@
                 <td><a href="../post.php?post_id=<?php echo $post["post_id"] ?>"><?php echo $post["post_title"] ?></a></td>
                 <td><?php echo $comment["comment_status"] ?></td>
                 <td><?php echo $comment["comment_date"] ?></td>
-                <td><a href="#" class="btn btn-success btn-sm">Approve</a></td>
-                <td><a href="#" class="btn btn-warning btn-sm">Unapprove</a></td>
+                <td><a href="comments.php?approve=<?php echo $comment["comment_id"] ?>" class="btn btn-success btn-sm">Approve</a></td>
+                <td><a href="comments.php?unapprove=<?php echo $comment["comment_id"] ?>" class="btn btn-warning btn-sm">Unapprove</a></td>
                 <td><a href="comments.php?delete=<?php echo $comment["comment_id"] ?>" class="btn btn-danger btn-sm">Delete</a></td>
               </tr>
             <?php endforeach ?>

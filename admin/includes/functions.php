@@ -126,6 +126,21 @@ function delete_comment($comment_id)
   mysqli_query($connection, $sql);
 }
 
+function approve_comment($comment_id)
+{
+  global $connection;
+  $sql = "UPDATE comments SET comment_status = 'approved' WHERE comment_id = $comment_id ";
+  mysqli_query($connection, $sql);
+}
+
+function unapprove_comment($comment_id)
+{
+  global $connection;
+  $sql = "UPDATE comments SET comment_status = 'unapproved' WHERE comment_id = $comment_id ";
+  mysqli_query($connection, $sql);
+}
+
+
 
 ?>
 <!-- End Comments Functions -->
