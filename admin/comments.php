@@ -2,6 +2,17 @@
 
   <?php $comments = get_comments(); ?>
 
+  <?php
+
+  if (isset($_GET["delete"])) {
+
+    $comment_id = $_GET["delete"];
+    delete_comment($comment_id);
+    header("location: comments.php");
+  }
+
+  ?>
+
   <?php include './includes/header.php' ?>
 
   <div class="page">
@@ -41,7 +52,7 @@
                 <td><?php echo $comment["comment_date"] ?></td>
                 <td><a href="#" class="btn btn-success btn-sm">Approve</a></td>
                 <td><a href="#" class="btn btn-warning btn-sm">Unapprove</a></td>
-                <td><a href="#" class="btn btn-danger btn-sm">Delete</a></td>
+                <td><a href="comments.php?delete=<?php echo $comment["comment_id"] ?>" class="btn btn-danger btn-sm">Delete</a></td>
               </tr>
             <?php endforeach ?>
           </tbody>

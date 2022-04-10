@@ -118,6 +118,15 @@ function get_comments()
   return mysqli_fetch_all($query, MYSQLI_ASSOC);
 }
 
+function delete_comment($comment_id)
+{
+
+  global $connection;
+  $sql = "DELETE FROM comments WHERE comment_id = $comment_id";
+  mysqli_query($connection, $sql);
+}
+
+
 ?>
 <!-- End Comments Functions -->
 
