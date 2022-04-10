@@ -7,7 +7,6 @@ if (isset($_GET["post_id"])) {
 }
 ?>
 
-
 <?php
 
 if (isset($_POST["create_comment"])) {
@@ -18,7 +17,6 @@ if (isset($_POST["create_comment"])) {
 
   create_comment($post_id, $comment_author, $comment_email, $comment_content);
 }
-
 
 ?>
 

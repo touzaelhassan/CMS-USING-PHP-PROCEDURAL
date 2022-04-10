@@ -30,12 +30,13 @@
           </thead>
           <tbody>
             <?php foreach ($comments as $comment) : ?>
+              <?php $post = get_post_by_id($comment["post_id"]); ?>
               <tr>
                 <td><?php echo $comment["comment_id"] ?></td>
                 <td><?php echo $comment["comment_author"] ?></td>
                 <td><?php echo $comment["comment_email"] ?></td>
                 <td><?php echo $comment["comment_content"] ?></td>
-                <td>Post Title</td>
+                <td><a href="../post.php?post_id=<?php echo $post["post_id"] ?>"><?php echo $post["post_title"] ?></a></td>
                 <td><?php echo $comment["comment_status"] ?></td>
                 <td><?php echo $comment["comment_date"] ?></td>
                 <td><a href="#" class="btn btn-success btn-sm">Approve</a></td>
