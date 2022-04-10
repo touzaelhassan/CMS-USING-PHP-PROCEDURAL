@@ -16,8 +16,28 @@ function get_users()
   return mysqli_fetch_all($query, MYSQLI_ASSOC);
 }
 
-function delete_user()
+function user_to_admin($user_id)
 {
+
+  global $connection;
+  $sql = "UPDATE users SET user_role = 'admin' WHERE user_id = $user_id";
+  mysqli_query($connection, $sql);
+}
+
+function user_to_subscriber($user_id)
+{
+  global $connection;
+  $sql = "UPDATE users SET user_role = 'subscriber' WHERE user_id = $user_id";
+  mysqli_query($connection, $sql);
+}
+
+
+function delete_user($user_id)
+{
+  global $connection;
+  $sql = "DELETE FROM users WHERE user_id = $user_id";
+  mysqli_query($connection, $sql);
+  header("location: users.php");
 }
 
 ?>
