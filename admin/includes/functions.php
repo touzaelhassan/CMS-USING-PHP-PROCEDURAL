@@ -1,3 +1,17 @@
+<!-- Start Users Functions -->
+<?php
+
+function get_users()
+{
+}
+
+function delete_user()
+{
+}
+
+?>
+<!-- End Users Functions -->
+
 <!-- Start Categories Functions -->
 <?php
 

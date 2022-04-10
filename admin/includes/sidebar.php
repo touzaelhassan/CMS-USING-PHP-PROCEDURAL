@@ -4,13 +4,19 @@
     <li class="sidebar__item"><a class="sidebar__link" href="./categories.php">Categories</a></li>
     <li class="sidebar__item">
       <span> Posts</span>
-      <ul class="posts__list">
-        <li class="posts__item"><a href="posts.php">View Posts</a></li>
-        <li class="posts__item"><a href="posts.php?source=create_post">Add Post</a></li>
+      <ul class="dropdown__list">
+        <li class="dropdown__item"><a href="posts.php">View Posts</a></li>
+        <li class="dropdown__item"><a href="posts.php?source=create_post">Add Post</a></li>
       </ul>
     </li>
     <li class="sidebar__item"><a class="sidebar__link" href="comments.php">Comments</a></li>
-    <li class="sidebar__item"><a class="sidebar__link" href="#">Users</a></li>
+    <li class="sidebar__item">
+      <span> Users</span>
+      <ul class="dropdown__list">
+        <li class="dropdown__item"><a href="users.php">View Users</a></li>
+        <li class="dropdown__item"><a href="users.php?source=create_user">Add User</a></li>
+      </ul>
+    </li>
     <li class="sidebar__item"><a class="sidebar__link" href="#">Profile</a></li>
   </ul>
 </div>

@@ -188,9 +188,13 @@ a {
   display: block;
 }
 
-.posts__list {
-  padding-left: 32px;
+.dropdown__list {
+  padding-left: 28px;
   list-style: circle;
+}
+
+.dropdown__item a {
+  font-size: 14px;
 }
 /* End Sidebar Section */
 
