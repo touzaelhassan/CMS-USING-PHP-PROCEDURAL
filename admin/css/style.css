@@ -171,6 +171,26 @@ a {
 
 /* End Dashboard Posts Section */
 
+/* Start Dashboard Section */
+.user__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.user__form label {
+  margin-bottom: 5px;
+}
+
+.user__input {
+  width: 50%;
+}
+
+.user__btn {
+  width: 15%;
+}
+/* End Dashboard Section */
+
 /* Start Sidebar Section */
 .sidebar {
   border: 3px solid green;
