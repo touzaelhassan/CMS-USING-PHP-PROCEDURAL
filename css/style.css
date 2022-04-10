@@ -169,7 +169,29 @@ a {
 }
 
 .comments__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   border: 3px solid coral;
+  padding: 20px;
+}
+
+.comment {
+  border: 3px solid #eee;
+  padding: 20px;
+}
+
+.comment__author {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.comment__date {
+  margin: 0;
+}
+
+.comment__content {
+  margin: 0;
 }
 /* End Single Post Section */
 

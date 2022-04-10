@@ -1,16 +1,14 @@
 <?php include './includes/head.php' ?>
 
-<?php
-if (isset($_GET["post_id"])) {
-  $post_id = $_GET["post_id"];
-  $post = get_post_by_id($post_id);
-}
-?>
+<?php if (isset($_GET["post_id"])) $post_id = $_GET["post_id"]; ?>
+
+<?php $post = get_post_by_id($post_id); ?>
+
+<?php $comments = get_comments_by_post_id($post_id); ?>
 
 <?php
 
 if (isset($_POST["create_comment"])) {
-  $post_id =  $_GET["post_id"];
   $comment_author = $_POST["comment_author"];
   $comment_email = $_POST["comment_email"];
   $comment_content = $_POST["comment_content"];
@@ -57,7 +55,13 @@ if (isset($_POST["create_comment"])) {
         </form>
       </div>
       <div class="comments__content">
-        Comments List
+        <?php foreach ($comments as $comment) : ?>
+          <div class="comment">
+            <h5 class="comment__author"><?php echo $comment["comment_author"] ?></h5>
+            <p class="comment__date"><?php echo $comment["comment_date"] ?></p>
+            <p class="comment__content"><?php echo $comment["comment_content"] ?></p>
+          </div>
+        <?php endforeach ?>
       </div>
     </div>
   </div>

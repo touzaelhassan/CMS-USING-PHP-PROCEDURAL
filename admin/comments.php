@@ -2,7 +2,6 @@
 
   <?php $comments = get_comments(); ?>
 
-
   <?php
 
   if (isset($_GET["approve"])) {

@@ -105,7 +105,7 @@ function create_comment($post_id, $comment_author, $comment_email, $comment_cont
 {
   global $connection;
 
-  $sql = "INSERT INTO comments (post_id, comment_author, comment_email, comment_content, comment_status,comment_date) VALUES ($post_id, '$comment_author','$comment_email','$comment_content','unapproved',now())";
+  $sql = "INSERT INTO comments (post_id, comment_author, comment_email, comment_content, comment_status,comment_date) VALUES ($post_id, '$comment_author', '$comment_email', '$comment_content', 'unapproved', now())";
 
   mysqli_query($connection, $sql);
 }
@@ -118,12 +118,12 @@ function get_comments()
   return mysqli_fetch_all($query, MYSQLI_ASSOC);
 }
 
-function delete_comment($comment_id)
+function get_comments_by_post_id($post_id)
 {
-
   global $connection;
-  $sql = "DELETE FROM comments WHERE comment_id = $comment_id";
-  mysqli_query($connection, $sql);
+  $sql = "SELECT * FROM comments WHERE post_id = $post_id AND comment_status = 'approved' ORDER BY comment_id DESC";
+  $query = mysqli_query($connection, $sql);
+  return mysqli_fetch_all($query, MYSQLI_ASSOC);
 }
 
 function approve_comment($comment_id)
@@ -140,7 +140,13 @@ function unapprove_comment($comment_id)
   mysqli_query($connection, $sql);
 }
 
+function delete_comment($comment_id)
+{
 
+  global $connection;
+  $sql = "DELETE FROM comments WHERE comment_id = $comment_id";
+  mysqli_query($connection, $sql);
+}
 
 ?>
 <!-- End Comments Functions -->
