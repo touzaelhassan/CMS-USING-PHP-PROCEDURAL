@@ -16,6 +16,21 @@ function get_users()
   return mysqli_fetch_all($query, MYSQLI_ASSOC);
 }
 
+function get_user_by_id($user_id)
+{
+  global $connection;
+  $sql = "SELECT * FROM users WHERE user_id = $user_id";
+  $query = mysqli_query($connection, $sql);
+  return mysqli_fetch_assoc($query);
+}
+
+function update_user($user_id, $user_name, $user_password, $user_email, $first_name, $last_name, $user_role)
+{
+  global $connection;
+  $sql = "UPDATE users SET  user_name = '$user_name', user_password ='$user_password',user_email = '$user_email', first_name = '$first_name', last_name = '$last_name', user_role = '$user_role' WHERE user_id = $user_id";
+  mysqli_query($connection, $sql);
+}
+
 function user_to_admin($user_id)
 {
 
