@@ -3,6 +3,10 @@
 
 function get_users()
 {
+  global $connection;
+  $sql = "SELECT * FROM users";
+  $query = mysqli_query($connection, $sql);
+  return mysqli_fetch_all($query, MYSQLI_ASSOC);
 }
 
 function delete_user()
