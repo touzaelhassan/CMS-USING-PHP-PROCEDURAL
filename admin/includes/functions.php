@@ -98,6 +98,20 @@ function delete_post($post_id)
 ?>
 <!-- End Posts Functions -->
 
+<!-- Start Comments Functions -->
+<?php
+
+function get_comments()
+{
+  global $connection;
+  $sql = "SELECT * FROM comments";
+  $query = mysqli_query($connection, $sql);
+  return mysqli_fetch_all($query, MYSQLI_ASSOC);
+}
+
+?>
+<!-- End Comments Functions -->
+
 <!-- Start Search Function -->
 <?php
 

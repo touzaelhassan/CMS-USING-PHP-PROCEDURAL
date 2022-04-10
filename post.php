@@ -21,6 +21,7 @@ if (isset($_GET["post_id"])) {
       <p class="post__content"><?php echo $post["post_content"]; ?></p>
       <a href="#" class="post__link">READ MORE</a>
     </div>
+
     <div class="single__post__comments">
       <div class="comments__form">
         <h4 class="mb-4">Leave a comment</h4>
