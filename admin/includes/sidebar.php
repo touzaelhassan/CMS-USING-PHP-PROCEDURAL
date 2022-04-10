@@ -9,7 +9,7 @@
         <li class="posts__item"><a href="posts.php?source=create_post">Add Post</a></li>
       </ul>
     </li>
-    <li class="sidebar__item"><a class="sidebar__link" href="#">Comments</a></li>
+    <li class="sidebar__item"><a class="sidebar__link" href="comments.php">Comments</a></li>
     <li class="sidebar__item"><a class="sidebar__link" href="#">Users</a></li>
     <li class="sidebar__item"><a class="sidebar__link" href="#">Profile</a></li>
   </ul>

@@ -1,10 +1,10 @@
   <?php $posts = get_posts(); ?>
 
-  <table class="table table-bordered table__posts">
+  <table class="table table-bordered ">
     <thead>
       <tr>
         <th>Post Id</th>
-        <th>Category Id</th>
+        <th>Category</th>
         <th>Author</th>
         <th>Title</th>
         <th>Image</th>
@@ -16,9 +16,7 @@
     </thead>
     <tbody>
       <?php foreach ($posts as $post) : ?>
-
         <?php $category = get_category_by_id($post["category_id"]); ?>
-
         <tr>
           <td><?php echo $post["post_id"]; ?></td>
           <td><?php echo $category["category_title"]; ?></td>

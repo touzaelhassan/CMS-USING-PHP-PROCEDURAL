@@ -145,8 +145,31 @@ a {
 }
 
 .single__post__comments {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   border: 3px solid blue;
   padding: 20px;
+}
+
+.comments__form {
+  border: 3px solid coral;
+  padding: 20px;
+}
+
+.comments__form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 50%;
+}
+
+.comments__form label {
+  margin-bottom: 5px;
+}
+
+.comments__content {
+  border: 3px solid coral;
 }
 /* End Single Post Section */
 

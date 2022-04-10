@@ -21,8 +21,30 @@ if (isset($_GET["post_id"])) {
       <p class="post__content"><?php echo $post["post_content"]; ?></p>
       <a href="#" class="post__link">READ MORE</a>
     </div>
-    <div class="single__post__comments text-center">
-      POST COMMENTS
+    <div class="single__post__comments">
+      <div class="comments__form">
+        <h4 class="mb-4">Leave a comment</h4>
+        <form action="" method="POST">
+          <div class="form-group">
+            <label>Author</label>
+            <input type="text" class="form-control" name="comment_author">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" name="comment_email">
+          </div>
+          <div class="form-group">
+            <label>Comment</label>
+            <textarea name="comment_content" class="form-control" cols="20" rows="6"></textarea>
+          </div>
+          <div class="form-group w-25">
+            <input type="submit" class="btn btn-primary form-control" name="create_comment">
+          </div>
+        </form>
+      </div>
+      <div class="comments__content">
+        Comments List
+      </div>
     </div>
   </div>
   <aside class="sidebar">
