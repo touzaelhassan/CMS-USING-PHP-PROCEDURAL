@@ -17,6 +17,6 @@
         <li class="dropdown__item"><a href="users.php?source=create_user">Add User</a></li>
       </ul>
     </li>
-    <li class="sidebar__item"><a class="sidebar__link" href="#">Profile</a></li>
+    <li class="sidebar__item"><a class="sidebar__link" href="profile.php">Profile</a></li>
   </ul>
 </div>
