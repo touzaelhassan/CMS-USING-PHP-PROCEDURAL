@@ -5,5 +5,6 @@
       NAVIGATION
     </nav>
     <div class="homepage"><a class="homepage__link" href="../index.php">HOMEPAGE</a></div>
+    <div class="logout"><a class="logout__link" href="./includes/logout.php">LOGOUT</a></div>
   </div>
 </header>

@@ -12,6 +12,9 @@
         <?php endforeach; ?>
       </ul>
     </nav>
-    <div class="admin"><a href="./admin/index.php">ADMIN</a></div>
+    <div class="admin ms-auto"><a href="./admin/index.php">ADMIN</a></div>
+    <?php if (isset($_SESSION['user_id'])) : ?>
+      <div class="logout"><a class="logout__link" href="./admin/includes/logout.php">LOGOUT</a></div>
+    <?php endif ?>
   </div>
 </header>
