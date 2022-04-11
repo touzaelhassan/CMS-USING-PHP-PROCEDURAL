@@ -8,6 +8,13 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] != 'admin') {
 
 ?>
 
+<?php
+$users_number = count(get_users());
+$categories_number = count(get_categories());
+$posts_number = count(get_posts());
+$comments_number = count(get_comments());
+?>
+
 <?php include './includes/header.php' ?>
 
 <div class="page">
@@ -26,7 +33,7 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] != 'admin') {
               WIDGET ICON
             </div>
             <div class="widget__stats">
-              <h3>50</h3>
+              <h3><?php echo $users_number ?></h3>
               <p>Users</p>
             </div>
           </div>
@@ -41,7 +48,7 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] != 'admin') {
               WIDGET ICON
             </div>
             <div class="widget__stats">
-              <h3>50</h3>
+              <h3><?php echo $categories_number ?></h3>
               <p>Categories</p>
             </div>
           </div>
@@ -56,7 +63,7 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] != 'admin') {
               WIDGET ICON
             </div>
             <div class="widget__stats">
-              <h3>50</h3>
+              <h3><?php echo $posts_number ?></h3>
               <p>Posts</p>
             </div>
           </div>
@@ -71,7 +78,7 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] != 'admin') {
               WIDGET ICON
             </div>
             <div class="widget__stats">
-              <h3>50</h3>
+              <h3><?php echo $comments_number ?></h3>
               <p>Comments</p>
             </div>
           </div>
