@@ -1,5 +1,13 @@
 <?php include './includes/head.php' ?>
 
+<?php
+
+if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] != 'admin') {
+  header('location: ../index.php');
+}
+
+?>
+
 <?php include './includes/header.php' ?>
 
 <div class="page">
