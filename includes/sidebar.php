@@ -7,7 +7,19 @@
       <input type="submit" class="search__btn" value="SEARCH" name="search">
     </form>
   </div>
-  <div class="sidebar__login">LOGIN</div>
+  <div class="sidebar__login">
+    <form action="" method="POST" class="login__form">
+      <div class="form-group">
+        <input type="text" class="form-control form__input" name="user_name" placeholder="Username">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control form__input" name="user_name" placeholder="Password">
+      </div>
+      <div class="form-group">
+        <input type="submit" class="form-control btn btn-primary form__btn" value="LOGIN" name="login">
+      </div>
+    </form>
+  </div>
   <div class="sidebar__categories">
     <ul class="categories__list">
       <?php foreach ($categories as $category) : ?>

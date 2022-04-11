@@ -244,6 +244,24 @@ a {
   text-align: center;
 }
 
+.login__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form__input {
+  border-radius: 0;
+}
+
+.form__btn {
+  border-radius: 0;
+}
+
+::placeholder {
+  font-size: 14px;
+}
+
 .sidebar__categories {
   border: 3px solid blue;
   padding: 20px;
