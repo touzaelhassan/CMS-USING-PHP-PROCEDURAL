@@ -104,6 +104,32 @@ a {
 }
 /* End Dashboard Section */
 
+/* Start Widgets Section */
+.widgets__content {
+  display: flex;
+  gap: 20px;
+  border: 3px solid coral;
+  padding: 20px;
+}
+
+.widget__item {
+  padding: 20px;
+  border: 3px solid #000;
+  width: 25%;
+}
+
+.widget__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.widget__footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* End Widgets Section */
+
 /* Start Dashboard Categories Section */
 .dashboard__categories {
   display: flex;

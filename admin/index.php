@@ -19,6 +19,68 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] != 'admin') {
       <h4>ADMIN DASHBOARD | <span><?php if (isset($_SESSION['user_name'])) echo $_SESSION['user_name']; ?></span></h4>
     </div>
     <div class="dashboard__content">
+      <div class="widgets__content">
+        <div class="widget__item">
+          <div class="widget__header">
+            <div class="widget__icon">
+              WIDGET ICON
+            </div>
+            <div class="widget__stats">
+              <h3>50</h3>
+              <p>Users</p>
+            </div>
+          </div>
+          <div class="widget__footer">
+            <span>View Details</span>
+            <span>--></span>
+          </div>
+        </div>
+        <div class="widget__item">
+          <div class="widget__header">
+            <div class="widget__icon">
+              WIDGET ICON
+            </div>
+            <div class="widget__stats">
+              <h3>50</h3>
+              <p>Categories</p>
+            </div>
+          </div>
+          <div class="widget__footer">
+            <span>View Details</span>
+            <span>--></span>
+          </div>
+        </div>
+        <div class="widget__item">
+          <div class="widget__header">
+            <div class="widget__icon">
+              WIDGET ICON
+            </div>
+            <div class="widget__stats">
+              <h3>50</h3>
+              <p>Posts</p>
+            </div>
+          </div>
+          <div class="widget__footer">
+            <span>View Details</span>
+            <span>--></span>
+          </div>
+        </div>
+        <div class="widget__item">
+          <div class="widget__header">
+            <div class="widget__icon">
+              WIDGET ICON
+            </div>
+            <div class="widget__stats">
+              <h3>50</h3>
+              <p>Comments</p>
+            </div>
+          </div>
+          <div class="widget__footer">
+            <span>View Details</span>
+            <span>--></span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
