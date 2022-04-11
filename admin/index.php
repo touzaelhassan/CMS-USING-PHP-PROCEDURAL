@@ -1,6 +1,5 @@
 <?php include './includes/head.php' ?>
 
-
 <?php include './includes/header.php' ?>
 
 <div class="page">
@@ -9,7 +8,7 @@
   </aside>
   <div class="dashboard">
     <div class="dashboard__title">
-      <h4>ADMIN DASHBOARD</h4>
+      <h4>ADMIN DASHBOARD | <span><?php if (isset($_SESSION['user_name'])) echo $_SESSION['user_name']; ?></span></h4>
     </div>
     <div class="dashboard__content">
     </div>
