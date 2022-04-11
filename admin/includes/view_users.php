@@ -11,11 +11,13 @@
   if (isset($_GET["admin"])) {
     $user_id = $_GET["admin"];
     user_to_admin($user_id);
+    header("location: users.php");
   }
 
   if (isset($_GET["subscriber"])) {
     $user_id = $_GET["subscriber"];
     user_to_subscriber($user_id);
+    header("location: users.php");
   }
 
 

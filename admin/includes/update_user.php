@@ -22,7 +22,7 @@ if (isset($_POST["update_user"])) {
 
 <h2 class="users__title">Edit User</h2>
 <div class="users__content">
-  <form action="" method="POST" class="user__form" enctype="multipart/form-data">
+  <form action="" method="POST" class="user__form w-50" enctype="multipart/form-data">
     <div class="form-group">
       <label>Firstname</label>
       <input type="text" class="form-control" value="<?php echo $user["first_name"]; ?>" name="first_name">
@@ -54,6 +54,6 @@ if (isset($_POST["update_user"])) {
         <?php } ?>
       </select>
     </div>
-    <input type="submit" class="btn btn-primary px-4" name="update_user" value="UPDATE USER">
+    <input type="submit" class="btn btn-primary px-4 w-50" name="update_user" value="UPDATE USER">
   </form>
 </div>

@@ -4,7 +4,23 @@
 
   if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
-    echo $user_id;
+    $user = get_user_by_id($user_id);
+  }
+
+  ?>
+  <?php
+
+  if (isset($_POST["update_profile"])) {
+
+    $user_name = $_POST["user_name"];
+    $user_password = $_POST["user_password"];
+    $first_name = $_POST["first_name"];
+    $last_name = $_POST["last_name"];
+    $user_email = $_POST["user_email"];
+    $user_role = $_POST["user_role"];
+
+    update_user($user_id, $user_name, $user_password, $user_email, $first_name, $last_name, $user_role);
+    header("location: users.php");
   }
 
   ?>
@@ -21,7 +37,7 @@
       </div>
       <div class="dashboard__content">
 
-        <form action="" method="POST" class="user__form" enctype="multipart/form-data">
+        <form action="" method="POST" class="user__form w-50" enctype="multipart/form-data">
           <div class="form-group">
             <label>Firstname</label>
             <input type="text" class="form-control" value="<?php echo $user["first_name"]; ?>" name="first_name">
@@ -53,7 +69,7 @@
               <?php } ?>
             </select>
           </div>
-          <input type="submit" class="btn btn-primary px-4" name="update_user" value="UPDATE USER">
+          <input type="submit" class="btn btn-primary px-4 w-50" name="update_profile" value="UPDATE PROFILE">
         </form>
 
       </div>
