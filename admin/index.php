@@ -9,10 +9,10 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] != 'admin') {
 ?>
 
 <?php
-$users_number = count(get_users());
-$categories_number = count(get_categories());
-$posts_number = count(get_posts());
-$comments_number = count(get_comments());
+$users = get_users();
+$categories = get_categories();
+$posts = get_posts();
+$comments = get_comments();
 ?>
 
 <?php include './includes/header.php' ?>
@@ -33,13 +33,12 @@ $comments_number = count(get_comments());
               WIDGET ICON
             </div>
             <div class="widget__stats">
-              <h3><?php echo $users_number ?></h3>
+              <h3><?php echo count($users) ?></h3>
               <p>Users</p>
             </div>
           </div>
           <div class="widget__footer">
             <span>View Details</span>
-            <span>--></span>
           </div>
         </div>
         <div class="widget__item">
@@ -48,13 +47,12 @@ $comments_number = count(get_comments());
               WIDGET ICON
             </div>
             <div class="widget__stats">
-              <h3><?php echo $categories_number ?></h3>
+              <h3><?php echo count($categories) ?></h3>
               <p>Categories</p>
             </div>
           </div>
           <div class="widget__footer">
             <span>View Details</span>
-            <span>--></span>
           </div>
         </div>
         <div class="widget__item">
@@ -63,13 +61,12 @@ $comments_number = count(get_comments());
               WIDGET ICON
             </div>
             <div class="widget__stats">
-              <h3><?php echo $posts_number ?></h3>
+              <h3><?php echo count($posts) ?></h3>
               <p>Posts</p>
             </div>
           </div>
           <div class="widget__footer">
             <span>View Details</span>
-            <span>--></span>
           </div>
         </div>
         <div class="widget__item">
@@ -78,15 +75,49 @@ $comments_number = count(get_comments());
               WIDGET ICON
             </div>
             <div class="widget__stats">
-              <h3><?php echo $comments_number ?></h3>
+              <h3><?php echo count($comments) ?></h3>
               <p>Comments</p>
             </div>
           </div>
           <div class="widget__footer">
             <span>View Details</span>
-            <span>--></span>
           </div>
         </div>
+      </div>
+      <div class="dashboard__charts">
+        <script type="text/javascript">
+          google.charts.load('current', {
+            'packages': ['bar']
+          });
+          google.charts.setOnLoadCallback(drawChart);
+
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Data', 'count'],
+
+              <?php
+              $element_text = ['Users', 'Categories', 'Posts', 'Comments'];
+              $element_count = [count($users), count($categories), count($posts), count($comments)];
+              for ($i = 0; $i < 4; $i++) {
+                echo "['$element_text[$i]'" . "," . "$element_count[$i]],";
+              }
+              ?>
+
+            ]);
+
+            var options = {
+              chart: {
+                title: '',
+                subtitle: '',
+              }
+            };
+
+            var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+          }
+        </script>
+        <div id="columnchart_material" style="width: 'auto'; height: 500px;"></div>
       </div>
     </div>
   </div>

@@ -161,11 +161,11 @@ function delete_post($post_id)
 <!-- Start Comments Functions -->
 <?php
 
-function create_comment($post_id, $comment_author, $comment_email, $comment_content,)
+function create_comment($post_id, $comment_author, $comment_email, $comment_content)
 {
   global $connection;
 
-  $sql = "INSERT INTO comments (post_id, comment_author, comment_email, comment_content, comment_status,comment_date) VALUES ($post_id, '$comment_author', '$comment_email', '$comment_content', 'unapproved', now())";
+  $sql = "INSERT INTO comments (post_id, comment_author, comment_email, comment_content, comment_status, comment_date) VALUES ($post_id, '$comment_author', '$comment_email', '$comment_content', 'unapproved', now())";
 
   mysqli_query($connection, $sql);
 
