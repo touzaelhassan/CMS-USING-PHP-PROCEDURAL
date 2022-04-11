@@ -8,12 +8,12 @@
     </form>
   </div>
   <div class="sidebar__login">
-    <form action="" method="POST" class="login__form">
+    <form action="includes/login.php" method="POST" class="login__form">
       <div class="form-group">
         <input type="text" class="form-control form__input" name="user_name" placeholder="Username">
       </div>
       <div class="form-group">
-        <input type="password" class="form-control form__input" name="user_name" placeholder="Password">
+        <input type="password" class="form-control form__input" name="user_password" placeholder="Password">
       </div>
       <div class="form-group">
         <input type="submit" class="form-control btn btn-primary form__btn" value="LOGIN" name="login">
