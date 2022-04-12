@@ -30,7 +30,6 @@ if (isset($_POST["create_comment"])) {
         <img src="./images/<?php echo $post["post_image"]; ?>">
       </div>
       <p class="post__content"><?php echo $post["post_content"]; ?></p>
-      <a href="#" class="post__link">READ MORE</a>
     </div>
 
     <div class="single__post__comments">

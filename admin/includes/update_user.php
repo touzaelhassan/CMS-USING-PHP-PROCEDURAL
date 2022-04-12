@@ -1,26 +1,4 @@
-<?php
-
-if (isset($_GET["update"])) {
-  $user_id = $_GET["update"];
-  $user = get_user_by_id($user_id);
-}
-
-if (isset($_POST["update_user"])) {
-
-  $user_name = $_POST["user_name"];
-  $user_password = $_POST["user_password"];
-  $first_name = $_POST["first_name"];
-  $last_name = $_POST["last_name"];
-  $user_email = $_POST["user_email"];
-  $user_role = $_POST["user_role"];
-
-  update_user($user_id, $user_name, $user_password, $user_email, $first_name, $last_name, $user_role);
-  header("location: users.php");
-}
-
-?>
-
-<h2 class="users__title">Edit User</h2>
+<h2 class="users__title">Update User</h2>
 <div class="users__content">
   <form action="" method="POST" class="user__form w-50" enctype="multipart/form-data">
     <div class="form-group">

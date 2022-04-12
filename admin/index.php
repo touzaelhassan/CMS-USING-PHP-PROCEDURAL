@@ -38,7 +38,7 @@ $comments = get_comments();
             </div>
           </div>
           <div class="widget__footer">
-            <span>View Details</span>
+            <a href="users.php">View Details</a>
           </div>
         </div>
         <div class="widget__item">
@@ -52,7 +52,7 @@ $comments = get_comments();
             </div>
           </div>
           <div class="widget__footer">
-            <span>View Details</span>
+            <a href="categories.php">View Details</a>
           </div>
         </div>
         <div class="widget__item">
@@ -66,7 +66,7 @@ $comments = get_comments();
             </div>
           </div>
           <div class="widget__footer">
-            <span>View Details</span>
+            <a href="posts.php">View Details</a>
           </div>
         </div>
         <div class="widget__item">
@@ -80,7 +80,7 @@ $comments = get_comments();
             </div>
           </div>
           <div class="widget__footer">
-            <span>View Details</span>
+            <a href="comments.php">View Details</a>
           </div>
         </div>
       </div>
@@ -117,7 +117,7 @@ $comments = get_comments();
             chart.draw(data, google.charts.Bar.convertOptions(options));
           }
         </script>
-        <div id="columnchart_material" style="width: 'auto'; height: 500px;"></div>
+        <div class="charts__content" id="columnchart_material" style="width: 'auto'; height: 500px;"></div>
       </div>
     </div>
   </div>

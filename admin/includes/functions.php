@@ -5,7 +5,7 @@ function create_user($user_name, $user_password, $user_email, $first_name, $last
 {
   global $connection;
   $sql = "INSERT INTO users (user_name, user_password, user_email, first_name, last_name, user_role) VALUES ('$user_name', '$user_password', '$user_email', '$first_name', '$last_name', '$user_role' )";
-  mysqli_query($connection, $sql);
+  return mysqli_query($connection, $sql);
 }
 
 function get_users()
