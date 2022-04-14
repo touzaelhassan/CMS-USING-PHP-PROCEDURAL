@@ -9,8 +9,8 @@
         <th>Title</th>
         <th>Image</th>
         <th>Tags</th>
-        <th>Comments</th>
         <th>Status</th>
+        <th>Comments</th>
         <th>Date</th>
       </tr>
     </thead>
@@ -24,8 +24,8 @@
           <td><?php echo $post["post_title"]; ?></td>
           <td><img src="../images/<?php echo $post["post_image"]; ?>" class="table__image"></td>
           <td><?php echo $post["post_tags"]; ?></td>
-          <td><?php echo $post["post_comments"]; ?></td>
           <td><?php echo $post["post_status"]; ?></td>
+          <td><?php echo $post["post_comments"]; ?></td>
           <td><?php echo $post["post_date"]; ?></td>
           <td><a href="posts.php?delete=<?php echo $post["post_id"]; ?>" class="btn btn-danger btn-sm">DELETE</a></td>
           <td><a href="posts.php?source=update_post&update=<?php echo $post["post_id"]; ?>" class="btn btn-primary btn-sm">UPDATE</a></td>

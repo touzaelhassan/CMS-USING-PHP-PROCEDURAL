@@ -59,9 +59,19 @@ if (isset($_POST["update_post"])) {
       <label>Post Tags</label>
       <input type="text" class="form-control" value="<?php echo $post["post_tags"] ?>" name="post_tags">
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label>Post Status</label>
       <input type="text" class="form-control" value="<?php echo $post["post_status"] ?>" name="post_status">
+    </div> -->
+    <div class="form-group">
+      <select name="post_status" class="form-control">
+        <option value="<?php echo $post["post_status"] ?>"><?php echo $post["post_status"] ?></option>
+        <?php if ($post["post_status"] == "published") { ?>
+          <option value="draft">draft</option>
+        <?php } else { ?>
+          <option value="published">published</option>
+        <?php } ?>
+      </select>
     </div>
     <div class="form-group">
       <label>Post Content</label>

@@ -3,7 +3,7 @@
 <header class="header">
   <div class="header__content">
     <div class="logo"><a class="logo__link" href="index.php">CMS</a></div>
-    <nav class="navigation">
+    <nav class="navigation me-auto">
       <ul class="nav__list">
         <?php foreach ($categories as $category) : ?>
           <li class="nav__item">
@@ -12,9 +12,9 @@
         <?php endforeach; ?>
       </ul>
     </nav>
-    <div class="admin ms-auto"><a href="./admin/index.php">DASHBOARD</a></div>
     <?php if (isset($_SESSION['user_id'])) : ?>
       <div class="logout"><a class="logout__link" href="./admin/includes/logout.php">LOGOUT</a></div>
     <?php endif ?>
+    <div class="admin"><a href="./admin/index.php">DASHBOARD</a></div>
   </div>
 </header>

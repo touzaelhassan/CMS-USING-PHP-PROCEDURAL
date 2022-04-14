@@ -45,10 +45,6 @@ a {
   letter-spacing: 1px;
 }
 
-.homepage {
-  margin-left: auto;
-}
-
 .nav__list {
   display: flex;
   align-items: center;

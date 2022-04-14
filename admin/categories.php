@@ -83,7 +83,8 @@
                 <tr>
                   <th>Category Id</th>
                   <th>Category Title</th>
-                  <th></th>
+                  <th>Delete</th>
+                  <th>Update</th>
                 </tr>
               </thead>
               <tbody>
@@ -92,13 +93,13 @@
                     <td><?php echo $category["category_id"]; ?></td>
                     <td><?php echo $category["category_title"]; ?></td>
                     <td>
-                      <a class="btn btn-danger btn-sm" href="categories.php?delete=<?php echo $category["category_id"]; ?>">
-                        DELETE
+                      <a class="btn btn-success btn-sm" href="categories.php?update=<?php echo $category["category_id"]; ?>">
+                        UPDATE
                       </a>
                     </td>
                     <td>
-                      <a class="btn btn-success btn-sm" href="categories.php?update=<?php echo $category["category_id"]; ?>">
-                        UPDATE
+                      <a class="btn btn-danger btn-sm" href="categories.php?delete=<?php echo $category["category_id"]; ?>">
+                        DELETE
                       </a>
                     </td>
                   </tr>
