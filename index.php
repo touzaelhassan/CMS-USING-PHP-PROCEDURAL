@@ -14,10 +14,12 @@
             <p class="post__author"><?php echo $post["post_author"]; ?></p>
             <p class="post__date"><?php echo $post["post_date"]; ?></p>
             <div class="post__image">
-              <img src="./images/<?php echo $post["post_image"]; ?>">
+              <a href="post.php?post_id=<?php echo $post["post_id"] ?>">
+                <img src="./images/<?php echo $post["post_image"]; ?>">
+              </a>
             </div>
             <p class="post__content"><?php echo substr($post["post_content"], 0, 300); ?></p>
-            <a href="#" class="post__link">READ MORE</a>
+            <a href="post.php?post_id=<?php echo $post["post_id"] ?>" class="post__link">READ MORE</a>
           </div>
         <?php endif; ?>
       <?php endforeach ?>
