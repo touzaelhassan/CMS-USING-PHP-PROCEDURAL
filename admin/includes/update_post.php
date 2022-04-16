@@ -25,7 +25,7 @@ if (isset($_POST["update_post"])) {
 
   update_post($post_id, $category_id, $post_author, $post_title, $post_content, $post_image, $post_tags, $post_status, $post_date);
 
-  header("location: posts.php");
+  $success_message = true;
 }
 
 ?>
