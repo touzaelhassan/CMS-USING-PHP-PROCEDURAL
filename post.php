@@ -13,7 +13,9 @@ if (isset($_POST["create_comment"])) {
   $comment_email = $_POST["comment_email"];
   $comment_content = $_POST["comment_content"];
 
-  create_comment($post_id, $comment_author, $comment_email, $comment_content);
+  if (!empty($comment_author) && !empty($comment_email) && !empty($comment_content)) {
+    create_comment($post_id, $comment_author, $comment_email, $comment_content);
+  }
 }
 
 ?>
