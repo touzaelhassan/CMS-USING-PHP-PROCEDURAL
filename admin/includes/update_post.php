@@ -1,37 +1,3 @@
-<?php
-
-
-if (isset($_GET["update"])) {
-  $post_id = $_GET["update"];
-  $post =  get_post_by_id($post_id);
-}
-
-if (isset($_POST["update_post"])) {
-
-  $category_id = $_POST["category_id"];
-  $post_author = $_POST["post_author"];
-  $post_title = $_POST["post_title"];
-  $post_content = $_POST["post_content"];
-
-  $post_image = $_FILES["image"]["name"];
-  $post_image_temp = $_FILES["image"]["tmp_name"];
-
-  $post_tags = $_POST["post_tags"];
-  $post_status = $_POST["post_status"];
-  $post_comments = 4;
-  $post_date = date("d-m-y");
-
-  move_uploaded_file($post_image_temp, "../images/$post_image");
-
-  update_post($post_id, $category_id, $post_author, $post_title, $post_content, $post_image, $post_tags, $post_status, $post_date);
-
-  $success_message = true;
-}
-
-?>
-
-<?php $categories = get_categories(); ?>
-
 <h4 class="posts__title pb-3">UPDATE POST</h4>
 <div class="posts__content">
   <form action="" method="POST" class="post__form" enctype="multipart/form-data">
