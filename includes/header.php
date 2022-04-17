@@ -12,6 +12,11 @@
         <?php endforeach; ?>
       </ul>
     </nav>
+    <?php if (isset($_SESSION["user_role"])) : ?>
+      <?php if (isset($_GET["post_id"])) : ?>
+        <div><a href="./admin/posts.php?source=update_post&update=<?php echo $_GET["post_id"]; ?>">UPDATE POST</a></div>
+      <?php endif ?>
+    <?php endif ?>
     <?php if (isset($_SESSION['user_id'])) : ?>
       <div class="logout"><a class="logout__link" href="./admin/includes/logout.php">LOGOUT</a></div>
     <?php endif ?>
