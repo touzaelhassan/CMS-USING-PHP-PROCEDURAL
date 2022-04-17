@@ -25,7 +25,8 @@
 
     move_uploaded_file($post_image_temp, "../images/$post_image");
     create_post($category_id, $post_author, $post_title, $post_content, $post_image, $post_tags, $post_status);
-    header("location: posts.php");
+    $post_id = mysqli_insert_id($connection);
+    $success_create_message = true;
   }
   ?>
 
@@ -83,6 +84,10 @@
       </div>
       <?php if (isset($success_update_message)) : ?>
         <p class="alert alert-success">Post updated successfully. <a href="../post.php?post_id=<?php echo $post_id; ?>" class="text-primary">view post</a> Or <a href="posts.php" class="text-primary">update more post</a></p>
+      <?php endif ?>
+
+      <?php if (isset($success_create_message)) : ?>
+        <p class="alert alert-success">Post created successfully. <a href="../post.php?post_id=<?php echo $post_id; ?>" class="text-primary">view post</a> Or <a href="posts.php" class="text-primary">view all posts</a></p>
       <?php endif ?>
       <div class="dashboard__content">
 
