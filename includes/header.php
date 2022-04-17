@@ -21,5 +21,8 @@
       <div class="logout"><a class="logout__link" href="./admin/includes/logout.php">LOGOUT</a></div>
     <?php endif ?>
     <div class="admin"><a href="./admin/index.php">DASHBOARD</a></div>
+    <?php if (isset($_SESSION["user_name"])) : ?>
+      <div class="admin-name"><i class="fas fa-user"></i><span class="text-uppercase"><?php echo $_SESSION["user_name"]; ?></span></div>
+    <?php endif ?>
   </div>
 </header>
