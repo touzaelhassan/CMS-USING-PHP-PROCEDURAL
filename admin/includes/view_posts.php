@@ -1,5 +1,8 @@
-  <?php $posts = get_posts(); ?>
+<div class="posts__header">
+  <div class="add_post_link"><a href="./posts.php?source=create_post" class="btn btn-success btn-sm">ADD POST</a></div>
+</div>
 
+<div class="posts__content">
   <table class="table table-bordered ">
     <thead>
       <tr>
@@ -33,3 +36,4 @@
       <?php endforeach ?>
     </tbody>
   </table>
+</div>
