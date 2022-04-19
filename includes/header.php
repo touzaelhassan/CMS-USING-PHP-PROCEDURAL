@@ -17,12 +17,15 @@
         <div><a href="./admin/posts.php?source=update_post&update=<?php echo $_GET["post_id"]; ?>">UPDATE POST</a></div>
       <?php endif ?>
     <?php endif ?>
-    <?php if (isset($_SESSION['user_id'])) : ?>
-      <div class="logout"><a class="logout__link" href="./admin/includes/logout.php">LOGOUT</a></div>
+    <?php if (!isset($_SESSION["user_name"])) : ?>
+      <div class="signup-link"><a href="./signup.php">SIGN UP</a></div>
     <?php endif ?>
-    <div class="admin"><a href="./admin/index.php">DASHBOARD</a></div>
     <?php if (isset($_SESSION["user_name"])) : ?>
-      <div class="admin-name"><i class="fas fa-user"></i><span class="text-uppercase"><?php echo $_SESSION["user_name"]; ?></span></div>
+      <div class="logout"><a class="logout__link" href="./admin/includes/logout.php">LOGOUT</a></div>
+      <div class="admin"><a href="./admin/index.php">DASHBOARD</a></div>
+      <div class="admin-name">
+        <i class="fas fa-user"></i><span class="text-uppercase"><?php echo $_SESSION["user_name"]; ?></span>
+      </div>
     <?php endif ?>
   </div>
 </header>

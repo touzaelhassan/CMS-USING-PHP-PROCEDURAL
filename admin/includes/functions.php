@@ -1,7 +1,7 @@
 <!-- Start Users Functions -->
 <?php
 
-function create_user($user_name, $user_password, $user_email, $first_name, $last_name, $user_role)
+function create_user($user_name, $user_password, $user_email, $first_name, $last_name, $user_role = "subscriber")
 {
   global $connection;
   $sql = "INSERT INTO users (user_name, user_password, user_email, first_name, last_name, user_role) VALUES ('$user_name', '$user_password', '$user_email', '$first_name', '$last_name', '$user_role' )";

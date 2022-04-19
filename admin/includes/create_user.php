@@ -21,8 +21,8 @@
       <label>Lastname</label>
       <input type="text" class="form-control user__input" name="last_name">
     </div>
-    <div class="form-group">
-      <select name="user_role">
+    <div class="form-group col-6">
+      <select name="user_role" class="form-control">
         <option value="subscriber">Select Role</option>
         <option value="admin">Admin</option>
         <option value="subscriber">Subscriber</option>

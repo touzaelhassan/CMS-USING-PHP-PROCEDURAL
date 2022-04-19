@@ -54,6 +54,10 @@ a {
   display: inline-block;
   padding: 25px 10px;
 }
+
+.admin-name {
+  cursor: pointer;
+}
 /* End Header Section */
 
 /* Start Page Section */

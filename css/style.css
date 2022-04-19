@@ -55,8 +55,16 @@ a {
   letter-spacing: 1px;
 }
 
+.signup-link a {
+  font-weight: 500;
+}
+
 .admin {
   letter-spacing: 1px;
+}
+
+.admin-name {
+  cursor: pointer;
 }
 /* End Header Section */
 
@@ -71,6 +79,19 @@ a {
   min-height: 72vh;
 }
 /* End Page Section */
+
+/* Start Sign Up Form */
+.page.signup {
+  justify-content: center;
+  align-items: center;
+}
+
+.signup__form {
+  border: 3px solid green;
+  padding: 20px;
+  width: 500px;
+}
+/* End Sign Up Form */
 
 /* Start Posts Section */
 .posts {
