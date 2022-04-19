@@ -16,7 +16,11 @@ if (isset($_POST["signup"])) {
   $first_name = mysqli_escape_string($connection, $first_name);
   $last_name = mysqli_escape_string($connection, $last_name);
 
-  create_user($user_name, $user_password, $user_email, $first_name, $last_name);
+  if (!empty($user_name) || !empty($user_password) || !empty($user_email) || !empty($first_name) || !empty($last_name)) {
+    create_user($user_name, $user_password, $user_email, $first_name, $last_name);
+  } else {
+    $error_message = "Some fields are empty, please fill them.";
+  }
 }
 
 ?>
@@ -25,6 +29,9 @@ if (isset($_POST["signup"])) {
 
 <div class="page signup">
   <form action="signup.php" method="POST" class="row g-3 signup__form">
+    <?php if (isset($error_message)) : ?>
+      <p class="alert alert-danger text-center"><?php echo $error_message; ?></p>
+    <?php endif ?>
     <div class="col-md-6">
       <label class="form-label">Username</label>
       <input type="text" class="form-control" name="user_name">
