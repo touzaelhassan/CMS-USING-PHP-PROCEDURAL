@@ -129,6 +129,14 @@ function get_post_by_id($post_id)
   return mysqli_fetch_assoc($query);
 }
 
+function get_posts_by_author($author)
+{
+  global $connection;
+  $sql = "SELECT * FROM posts WHERE post_author = '$author'";
+  $query = mysqli_query($connection, $sql);
+  return mysqli_fetch_all($query, MYSQLI_ASSOC);
+}
+
 function get_posts_by_category_id($category_id)
 {
   global $connection;

@@ -1,6 +1,11 @@
 <?php include './includes/head.php' ?>
 
-<?php $posts = get_posts(); ?>
+<?php
+if (isset($_GET["author"])) {
+  $author = $_GET["author"];
+  $posts = get_posts_by_author($author);
+}
+?>
 
 <?php include './includes/header.php' ?>
 
@@ -11,7 +16,7 @@
         <?php if ($post["post_status"] == "published") : ?>
           <div class="post">
             <h2 class="post__title"><a href="post.php?post_id=<?php echo $post["post_id"] ?>"><?php echo $post["post_title"]; ?></a></h2>
-            <a href="./author_posts.php?author=<?php echo $post['post_author']; ?>&post_id=<?php echo $post['post_id']; ?>" class="post__author"><?php echo $post["post_author"]; ?></a>
+            <p class="post__author"><?php echo $post["post_author"]; ?></p>
             <p class="post__date"><?php echo $post["post_date"]; ?></p>
             <div class="post__image">
               <a href="post.php?post_id=<?php echo $post["post_id"] ?>">
