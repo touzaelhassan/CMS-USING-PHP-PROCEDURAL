@@ -1,8 +1,16 @@
 <?php include './includes/head.php' ?>
 
-<?php if (isset($_GET["post_id"])) $post_id = $_GET["post_id"]; ?>
+<?php
 
-<?php update_post_views($post_id); ?>
+if (isset($_GET["post_id"])) {
+  $post_id = $_GET["post_id"];
+  if ($_SERVER["REQUEST_METHOD"] !== 'POST') {
+    update_post_views($post_id);
+  }
+}
+
+?>
+
 
 <?php $post = get_post_by_id($post_id); ?>
 
