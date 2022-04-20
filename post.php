@@ -11,7 +11,6 @@ if (isset($_GET["post_id"])) {
 
 ?>
 
-
 <?php $post = get_post_by_id($post_id); ?>
 
 <?php $comments = get_comments_by_post_id($post_id); ?>
@@ -24,6 +23,7 @@ if (isset($_POST["create_comment"])) {
 
   if (!empty($comment_author) && !empty($comment_email) && !empty($comment_content)) {
     create_comment($post_id, $comment_author, $comment_email, $comment_content);
+    header("location: /cmsusingphp/post.php?post_id=1");
   }
 }
 ?>
