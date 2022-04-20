@@ -1,11 +1,8 @@
 <?php include './includes/head.php' ?>
 
-<?php
-if (isset($_GET["author"])) {
-  $author = $_GET["author"];
-  $posts = get_posts_by_author($author);
-}
-?>
+<?php if (isset($_GET["author"])) $author = $_GET["author"]; ?>
+
+<?php $posts = get_posts_by_author($author); ?>
 
 <?php include './includes/header.php' ?>
 

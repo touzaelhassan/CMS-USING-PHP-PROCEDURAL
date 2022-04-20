@@ -14,6 +14,7 @@
         <th>Tags</th>
         <th>Status</th>
         <th>Comments</th>
+        <th>Post Views</th>
         <th>Date</th>
         <th>View Post</th>
         <th>Update</th>
@@ -32,6 +33,7 @@
           <td><?php echo $post["post_tags"]; ?></td>
           <td><?php echo $post["post_status"]; ?></td>
           <td><?php echo $post["post_comments"]; ?></td>
+          <td><?php echo $post["post_views"]; ?></td>
           <td><?php echo $post["post_date"]; ?></td>
           <td><a href="../post.php?post_id=<?php echo $post["post_id"]; ?>" class="btn btn-info btn-sm">View Post</a></td>
           <td><a href="posts.php?source=update_post&update=<?php echo $post["post_id"]; ?>" class="btn btn-primary btn-sm">UPDATE</a></td>

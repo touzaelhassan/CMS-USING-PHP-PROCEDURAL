@@ -2,12 +2,13 @@
 
 <?php if (isset($_GET["post_id"])) $post_id = $_GET["post_id"]; ?>
 
+<?php update_post_views($post_id); ?>
+
 <?php $post = get_post_by_id($post_id); ?>
 
 <?php $comments = get_comments_by_post_id($post_id); ?>
 
 <?php
-
 if (isset($_POST["create_comment"])) {
   $comment_author = $_POST["comment_author"];
   $comment_email = $_POST["comment_email"];
@@ -17,7 +18,6 @@ if (isset($_POST["create_comment"])) {
     create_comment($post_id, $comment_author, $comment_email, $comment_content);
   }
 }
-
 ?>
 
 <?php include './includes/header.php' ?>
@@ -33,7 +33,6 @@ if (isset($_POST["create_comment"])) {
       </div>
       <p class="post__content"><?php echo $post["post_content"]; ?></p>
     </div>
-
     <div class="single__post__comments">
       <div class="comments__form">
         <h4 class="mb-4">Leave a comment</h4>

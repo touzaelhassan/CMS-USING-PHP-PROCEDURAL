@@ -155,6 +155,15 @@ update_post($post_id, $category_id, $post_author, $post_title, $post_content, $p
   mysqli_query($connection, $sql);
 }
 
+function update_post_views($post_id)
+{
+  global $connection;
+
+  $sql = "UPDATE posts SET post_views = post_views + 1 WHERE post_id = $post_id ";
+
+  mysqli_query($connection, $sql);
+}
+
 
 function delete_post($post_id)
 {

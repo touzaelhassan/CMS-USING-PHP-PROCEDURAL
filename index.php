@@ -21,7 +21,7 @@
             <p class="post__content"><?php echo substr($post["post_content"], 0, 300); ?></p>
             <a href="post.php?post_id=<?php echo $post["post_id"] ?>" class="post__link">READ MORE</a>
           </div>
-        <?php endif; ?>
+        <?php endif ?>
       <?php endforeach ?>
     </div>
     <div class="posts__pagination">

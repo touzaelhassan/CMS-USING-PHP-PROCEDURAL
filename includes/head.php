@@ -1,5 +1,6 @@
 <?php include './admin/includes/DBConnection.php'; ?>
 <?php include './admin/includes/functions.php'; ?>
+
 <?php session_start(); ?>
 
 <!DOCTYPE html>

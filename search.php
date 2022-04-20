@@ -1,13 +1,8 @@
 <?php include './includes/head.php' ?>
 
-<?php
+<?php if (isset($_POST["search"])) $keyword = $_POST["keyword"]; ?>
 
-if (isset($_POST["search"])) {
-  $keyword = $_POST["keyword"];
-  $posts = search($keyword);
-}
-
-?>
+<?php $posts = search($keyword); ?>
 
 <?php include './includes/header.php' ?>
 
