@@ -40,6 +40,14 @@ if (isset($_GET["update"])) {
 ?>
 
 <?php
+if (isset($_GET["reset"])) {
+  $post_id = $_GET["reset"];
+  reset_post_views($post_id);
+  header("location: posts.php");
+}
+?>
+
+<?php
 if (isset($_POST["update_post"])) {
 
   $category_id = $_POST["category_id"];

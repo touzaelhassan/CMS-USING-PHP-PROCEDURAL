@@ -33,7 +33,7 @@
           <td><?php echo $post["post_tags"]; ?></td>
           <td><?php echo $post["post_status"]; ?></td>
           <td><?php echo $post["post_comments"]; ?></td>
-          <td><?php echo $post["post_views"]; ?></td>
+          <td><a href="./posts.php?reset=<?php echo $post["post_id"]; ?>"><?php echo $post["post_views"]; ?></a></td>
           <td><?php echo $post["post_date"]; ?></td>
           <td><a href="../post.php?post_id=<?php echo $post["post_id"]; ?>" class="btn btn-info btn-sm">View Post</a></td>
           <td><a href="posts.php?source=update_post&update=<?php echo $post["post_id"]; ?>" class="btn btn-primary btn-sm">UPDATE</a></td>

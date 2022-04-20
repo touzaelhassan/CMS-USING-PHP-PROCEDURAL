@@ -164,6 +164,15 @@ function update_post_views($post_id)
   mysqli_query($connection, $sql);
 }
 
+function reset_post_views($post_id)
+{
+  global $connection;
+
+  $sql = "UPDATE posts SET post_views = 0 WHERE post_id = $post_id ";
+
+  mysqli_query($connection, $sql);
+}
+
 
 function delete_post($post_id)
 {
