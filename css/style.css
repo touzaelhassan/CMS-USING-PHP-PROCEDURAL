@@ -148,10 +148,13 @@ a {
 }
 
 .posts__pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 3px solid blue;
   padding: 20px;
-  text-align: center;
 }
+
 /* End Posts Section */
 
 /* Start Single Post Section */

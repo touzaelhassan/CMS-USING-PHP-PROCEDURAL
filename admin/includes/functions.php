@@ -108,7 +108,7 @@ function create_post($category_id, $post_author, $post_title, $post_content, $po
 {
   global $connection;
 
-  $sql = "INSERT INTO posts(category_id, post_author, post_title, post_content, post_image, post_tags, post_status, post_date) VALUES ('$category_id','$post_author','$post_title','$post_content','$post_image','$post_tags','$post_status',now())";
+  $sql = "INSERT INTO posts (category_id, post_author, post_title, post_content, post_image, post_tags, post_status, post_date) VALUES ($category_id, '$post_author', '$post_title', '$post_content', '$post_image', '$post_tags', '$post_status', now())";
 
   mysqli_query($connection, $sql);
 }
@@ -117,6 +117,14 @@ function get_posts()
 {
   global $connection;
   $sql = "SELECT * FROM posts";
+  $query = mysqli_query($connection, $sql);
+  return mysqli_fetch_all($query, MYSQLI_ASSOC);
+}
+
+function get_posts_by_pagination($start_from, $posts_number_per_page)
+{
+  global $connection;
+  $sql = "SELECT * FROM posts LIMIT $start_from, $posts_number_per_page";
   $query = mysqli_query($connection, $sql);
   return mysqli_fetch_all($query, MYSQLI_ASSOC);
 }
