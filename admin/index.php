@@ -1,19 +1,29 @@
 <?php include './includes/head.php' ?>
 
+<?php if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] != 'admin')  header('location: ../index.php'); ?>
+
 <?php
 
-if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] != 'admin') {
-  header('location: ../index.php');
+$user_online_session = session_id();
+$user_online_time = time();
+$user_online_time_out_in_seconds = 30;
+$user_online_time_out = $user_online_time - $user_online_time_out_in_seconds;
+
+$sql = "SELECT * FROM users_online WHERE user_online_session = '$user_online_session'";
+$query = mysqli_query($connection, $sql);
+$user_online = mysqli_num_rows($query);
+
+if ($user_online == 0) {
+  $sql = "INSERT INTO users_online (user_online_session, user_online_time) VALUES ('$user_online_session','$user_online_time')";
+  mysqli_query($connection, $sql);
 }
 
 ?>
 
-<?php
-$users = get_users();
-$categories = get_categories();
-$posts = get_posts();
-$comments = get_comments();
-?>
+<?php $users = get_users(); ?>
+<?php $categories = get_categories(); ?>
+<?php $posts = get_posts(); ?>
+<?php $comments = get_comments(); ?>
 
 <?php include './includes/header.php' ?>
 
