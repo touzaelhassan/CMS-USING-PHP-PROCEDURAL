@@ -55,6 +55,32 @@ function delete_user($user_id)
   header("location: users.php");
 }
 
+function get_users_online()
+{
+  global $connection;
+
+  $user_online_session = session_id();
+  $user_online_time = time();
+  $user_online_time_out_in_seconds = 60;
+  $user_online_time_out = $user_online_time - $user_online_time_out_in_seconds;
+
+  $sql = "SELECT * FROM users_online WHERE user_online_session = '$user_online_session'";
+  $query = mysqli_query($connection, $sql);
+  $user_online = mysqli_num_rows($query);
+
+  if ($user_online == 0) {
+    $sql = "INSERT INTO users_online (user_online_session, user_online_time) VALUES ('$user_online_session','$user_online_time')";
+    mysqli_query($connection, $sql);
+  } else {
+    $sql = "UPDATE users_online SET user_online_time = '$user_online_time' WHERE user_online_session = '$user_online_session'";
+    mysqli_query($connection, $sql);
+  }
+
+  $sql = "SELECT * FROM users_online WHERE user_online_time > $user_online_time_out";
+  $query = mysqli_query($connection, $sql);
+  return $users_online_number = mysqli_num_rows($query);
+}
+
 ?>
 <!-- End Users Functions -->
 
