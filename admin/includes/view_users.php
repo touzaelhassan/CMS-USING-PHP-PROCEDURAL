@@ -4,7 +4,7 @@
 
   if (isset($_GET["delete"])) {
 
-    if (isset($_SESSION['user_role']) && $_SESSION['user_role'] != 'admin') {
+    if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'admin') {
       $user_id = $_GET["delete"];
       $user_id = mysqli_real_escape_string($connection, $user_id);
       delete_user($user_id);

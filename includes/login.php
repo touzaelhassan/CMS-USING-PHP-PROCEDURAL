@@ -10,8 +10,8 @@ if (isset($_POST['login'])) {
   $user_name = $_POST['user_name'];
   $user_password = $_POST['user_password'];
 
-  $user_name = mysqli_real_escape_string($connection, $user_name);
-  $user_password = mysqli_real_escape_string($connection, $user_password);
+  $user_name = escape($user_name);
+  $user_password = escape($user_password);
 
   $db_user = get_user_by_user_name($user_name);
   $db_user_password = $db_user["user_password"];

@@ -306,3 +306,15 @@ function search($keyword)
 
 ?>
 <!-- End Search Function -->
+
+<!-- Start Escape Data Function -->
+<?php
+
+function escape($string)
+{
+  global $connection;
+  return mysqli_real_escape_string($connection, trim($string));
+}
+
+?>
+<!-- End Escape Data Function -->

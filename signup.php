@@ -10,11 +10,11 @@ if (isset($_POST["signup"])) {
   $first_name = $_POST["first_name"];
   $last_name = $_POST["last_name"];
 
-  $user_name = mysqli_escape_string($connection, $user_name);
-  $user_password = mysqli_escape_string($connection, $user_password);
-  $user_email = mysqli_escape_string($connection, $user_email);
-  $first_name = mysqli_escape_string($connection, $first_name);
-  $last_name = mysqli_escape_string($connection, $last_name);
+  $user_name = escape($user_name);
+  $user_password = escape($user_password);
+  $user_email = escape($user_email);
+  $first_name = escape($first_name);
+  $last_name = escape($last_name);
 
   $user_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 12));
 

@@ -17,9 +17,9 @@ if (isset($_GET["post_id"])) {
 
 <?php
 if (isset($_POST["create_comment"])) {
-  $comment_author = $_POST["comment_author"];
-  $comment_email = $_POST["comment_email"];
-  $comment_content = $_POST["comment_content"];
+  $comment_author = escape($_POST["comment_author"]);
+  $comment_email = escape($_POST["comment_email"]);
+  $comment_content = escape($_POST["comment_content"]);
 
   if (!empty($comment_author) && !empty($comment_email) && !empty($comment_content)) {
     create_comment($post_id, $comment_author, $comment_email, $comment_content);
