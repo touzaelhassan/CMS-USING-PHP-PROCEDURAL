@@ -16,10 +16,19 @@
 
     $user_name = $_POST["user_name"];
     $user_password = $_POST["user_password"];
+    $user_email = $_POST["user_email"];
     $first_name = $_POST["first_name"];
     $last_name = $_POST["last_name"];
-    $user_email = $_POST["user_email"];
     $user_role = $_POST["user_role"];
+
+    $user_name = mysqli_escape_string($connection, $user_name);
+    $user_password = mysqli_escape_string($connection, $user_password);
+    $user_email = mysqli_escape_string($connection, $user_email);
+    $first_name = mysqli_escape_string($connection, $first_name);
+    $last_name = mysqli_escape_string($connection, $last_name);
+    $user_role = mysqli_escape_string($connection, $user_role);
+
+    $user_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 10));
 
     update_user($user_id, $user_name, $user_password, $user_email, $first_name, $last_name, $user_role);
     header("location: users.php");
@@ -62,13 +71,9 @@
             <input type="password" class="form-control" name="user_password">
           </div>
           <div class="form-group">
-            <select name="user_role">
+            <label>User Role</label>
+            <select name="user_role" class="form-control">
               <option value="<?php echo $user["user_role"]; ?>"><?php echo $user["user_role"]; ?></option>
-              <?php if ($user["user_role"] === "admin") { ?>
-                <option value="subscriber">subscriber</option>
-              <?php } else { ?>
-                <option value="admin">admin</option>
-              <?php } ?>
             </select>
           </div>
           <input type="submit" class="btn btn-primary px-4 w-50" name="update_profile" value="UPDATE PROFILE">
