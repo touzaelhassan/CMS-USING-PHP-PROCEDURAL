@@ -1,5 +1,7 @@
   <?php include './includes/head.php' ?>
 
+  <?php $users_online_number = get_users_online(); ?>
+
   <?php
   if (isset($_POST["create"])) {
     $category_title = $_POST["category_title"];

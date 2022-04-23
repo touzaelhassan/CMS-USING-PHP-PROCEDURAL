@@ -24,6 +24,14 @@ function get_user_by_id($user_id)
   return mysqli_fetch_assoc($query);
 }
 
+function get_user_by_user_name($user_name)
+{
+  global $connection;
+  $sql = "SELECT * FROM users WHERE user_name = '$user_name'";
+  $query = mysqli_query($connection, $sql);
+  return mysqli_fetch_assoc($query);
+}
+
 function update_user($user_id, $user_name, $user_password, $user_email, $first_name, $last_name, $user_role)
 {
   global $connection;
@@ -45,7 +53,6 @@ function user_to_subscriber($user_id)
   $sql = "UPDATE users SET user_role = 'subscriber' WHERE user_id = $user_id";
   mysqli_query($connection, $sql);
 }
-
 
 function delete_user($user_id)
 {
@@ -78,7 +85,14 @@ function get_users_online()
 
   $sql = "SELECT * FROM users_online WHERE user_online_time > $user_online_time_out";
   $query = mysqli_query($connection, $sql);
-  return $users_online_number = mysqli_num_rows($query);
+  return mysqli_num_rows($query);
+}
+
+function login($db_user)
+{
+  $_SESSION['user_id'] = $db_user['user_id'];
+  $_SESSION['user_name'] = $db_user['user_name'];
+  $_SESSION['user_role'] = $db_user['user_role'];
 }
 
 ?>

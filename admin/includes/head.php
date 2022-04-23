@@ -2,6 +2,8 @@
 <?php include './includes/functions.php'; ?>
 <?php session_start(); ?>
 
+<?php if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] != 'admin')  header('location: ../index.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
