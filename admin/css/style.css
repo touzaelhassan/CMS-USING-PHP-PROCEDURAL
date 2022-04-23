@@ -232,20 +232,17 @@ a {
 /* Start Dashboard Users Section */
 .user__form {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 20px 48px;
+  width: 50%;
 }
 
 .user__form label {
   margin-bottom: 5px;
 }
 
-.user__input {
-  width: 50%;
-}
-
 .user__btn {
-  width: 15%;
+  width: 42%;
 }
 
 .user-notification {

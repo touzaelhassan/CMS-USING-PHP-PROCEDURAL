@@ -17,8 +17,6 @@ if (isset($_POST['login'])) {
   $db_user_password = $db_user["user_password"];
 
   if ($db_user != NULL && password_verify($user_password, $db_user_password)) {
-
-    echo "Correct Password";
     login($db_user);
     header("location: ../admin/index.php");
   } else {
