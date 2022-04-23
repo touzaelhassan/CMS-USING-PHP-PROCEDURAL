@@ -242,8 +242,6 @@ function create_comment($post_id, $comment_author, $comment_email, $comment_cont
   $sql = "INSERT INTO comments (post_id, comment_author, comment_email, comment_content, comment_status, comment_date) VALUES ($post_id, '$comment_author', '$comment_email', '$comment_content', 'unapproved', now())";
 
   mysqli_query($connection, $sql);
-
-  update_posts_comments_number($post_id);
 }
 
 function get_comments()
@@ -255,6 +253,14 @@ function get_comments()
 }
 
 function get_comments_by_post_id($post_id)
+{
+  global $connection;
+  $sql = "SELECT * FROM comments WHERE post_id = $post_id";
+  $query = mysqli_query($connection, $sql);
+  return mysqli_fetch_all($query, MYSQLI_ASSOC);
+}
+
+function get_approved_comments_by_post_id($post_id)
 {
   global $connection;
   $sql = "SELECT * FROM comments WHERE post_id = $post_id AND comment_status = 'approved' ORDER BY comment_id DESC";
@@ -273,13 +279,6 @@ function unapprove_comment($comment_id)
 {
   global $connection;
   $sql = "UPDATE comments SET comment_status = 'unapproved' WHERE comment_id = $comment_id ";
-  mysqli_query($connection, $sql);
-}
-
-function update_posts_comments_number($post_id)
-{
-  global $connection;
-  $sql = "UPDATE posts SET post_comments = post_comments + 1 WHERE post_id = $post_id ";
   mysqli_query($connection, $sql);
 }
 
