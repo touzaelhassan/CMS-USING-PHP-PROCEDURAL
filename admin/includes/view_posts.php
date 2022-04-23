@@ -24,7 +24,7 @@
     <tbody>
       <?php foreach ($posts as $post) : ?>
         <?php $category = get_category_by_id($post["category_id"]); ?>
-        <?php $comments_number = count(get_comments_by_post_id($post["post_id"])) ?>
+        <?php $post_comments_number = count(get_comments_by_post_id($post["post_id"])) ?>
         <tr>
           <td><?php echo $post["post_id"]; ?></td>
           <td><?php echo $category["category_title"]; ?></td>
@@ -33,7 +33,7 @@
           <td><img src="../images/<?php echo $post["post_image"]; ?>" class="table__image"></td>
           <td><?php echo $post["post_tags"]; ?></td>
           <td><?php echo $post["post_status"]; ?></td>
-          <td><?php echo $comments_number ?></td>
+          <td><a href="post_comments.php?post_id=<?php echo $post["post_id"]; ?>"><?php echo $post_comments_number ?></a></td>
           <td><a href="./posts.php?reset=<?php echo $post["post_id"]; ?>"><?php echo $post["post_views"]; ?></a></td>
           <td><?php echo $post["post_date"]; ?></td>
           <td><a href="../post.php?post_id=<?php echo $post["post_id"]; ?>" class="btn btn-info btn-sm">View</a></td>

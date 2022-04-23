@@ -2,20 +2,37 @@
 
   <?php $users_online_number = get_users_online(); ?>
 
-  <?php $comments = get_comments(); ?>
+  <?php
+
+  if (isset($_GET["post_id"])) {
+    $post_id = $_GET["post_id"];
+    $comments = get_comments_by_post_id($post_id);
+  }
+
+  ?>
+
 
   <?php
 
   if (isset($_GET["approve"])) {
+
+    $post_id = $_GET["post_id"];
     $comment_id = $_GET["approve"];
+
     approve_comment($comment_id);
-    header("location: comments.php");
+    $comments = get_comments_by_post_id($post_id);
+    header("location: post_comments.php?post_id=$post_id");
   }
 
   if (isset($_GET["unapprove"])) {
+
+    $post_id = $_GET["post_id"];
     $comment_id = $_GET["unapprove"];
+
     unapprove_comment($comment_id);
-    header("location: comments.php");
+    $comments = get_comments_by_post_id($post_id);
+
+    header("location: post_comments.php?post_id=$post_id");
   }
 
   ?>
@@ -24,9 +41,12 @@
 
   if (isset($_GET["delete"])) {
 
+    $post_id = $_GET["post_id"];
     $comment_id = $_GET["delete"];
+
     delete_comment($comment_id);
-    header("location: comments.php");
+
+    header("location: post_comments.php?post_id=$post_id");
   }
 
   ?>
@@ -68,9 +88,21 @@
                 <td><a href="../post.php?post_id=<?php echo $post["post_id"] ?>"><?php echo $post["post_title"] ?></a></td>
                 <td><?php echo $comment["comment_status"] ?></td>
                 <td><?php echo $comment["comment_date"] ?></td>
-                <td><a href="comments.php?approve=<?php echo $comment["comment_id"] ?>" class="btn btn-success btn-sm">Approve</a></td>
-                <td><a href="comments.php?unapprove=<?php echo $comment["comment_id"] ?>" class="btn btn-warning btn-sm">Unapprove</a></td>
-                <td><a href="comments.php?delete=<?php echo $comment["comment_id"] ?>" class="btn btn-danger btn-sm">Delete</a></td>
+                <td>
+                  <a href="post_comments.php?post_id=<?php echo $post_id ?>&approve=<?php echo $comment["comment_id"] ?>" class="btn btn-success btn-sm">
+                    Approve
+                  </a>
+                </td>
+                <td>
+                  <a href="post_comments.php?post_id=<?php echo $post_id ?>&unapprove=<?php echo $comment["comment_id"] ?>" class="btn btn-success btn-sm">
+                    Unapprove
+                  </a>
+                </td>
+                <td>
+                  <a href="post_comments.php?post_id=<?php echo $post_id ?>&delete=<?php echo $comment['comment_id'] ?>" class="btn btn-danger btn-sm">
+                    Delete
+                  </a>
+                </td>
               </tr>
             <?php endforeach ?>
           </tbody>
