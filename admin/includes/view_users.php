@@ -3,9 +3,13 @@
   <?php
 
   if (isset($_GET["delete"])) {
-    $user_id = $_GET["delete"];
-    delete_user($user_id);
-    header("location: users.php");
+
+    if (isset($_SESSION['user_role']) && $_SESSION['user_role'] != 'admin') {
+      $user_id = $_GET["delete"];
+      $user_id = mysqli_real_escape_string($connection, $user_id);
+      delete_user($user_id);
+      header("location: users.php");
+    }
   }
 
   if (isset($_GET["admin"])) {
