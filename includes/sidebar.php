@@ -11,6 +11,7 @@
       <input type="submit" class="search__btn" value="SEARCH" name="search">
     </form>
   </div>
+
   <div class="sidebar__login">
     <form action="includes/login.php" method="POST" class="login__form">
       <div class="form-group">
@@ -24,6 +25,7 @@
       </div>
     </form>
   </div>
+
   <div class="sidebar__categories">
     <ul class="categories__list">
       <?php foreach ($categories as $category) : ?>
@@ -33,6 +35,7 @@
       <?php endforeach ?>
     </ul>
   </div>
+
   <div class="sidebar__recent-posts">
     <?php foreach ($posts as $post) : ?>
       <div class="recent-post">
