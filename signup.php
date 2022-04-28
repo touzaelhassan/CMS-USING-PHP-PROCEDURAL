@@ -56,7 +56,7 @@ if (isset($_POST["signup"])) {
         <label class="form-label">Last Name</label>
         <input type="text" class="form-control" name="last_name">
       </div>
-      <div class="col-12">
+      <div class="col-12 mt-5">
         <button type="submit" class="btn btn-primary w-100" name="signup">SIGN UP</button>
       </div>
     </form>

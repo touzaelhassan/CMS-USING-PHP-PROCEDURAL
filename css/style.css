@@ -81,14 +81,54 @@ a {
 .page.signup {
   justify-content: center;
   align-items: center;
+  height: 81vh;
 }
 
 .signup__form {
-  border: 3px solid green;
   padding: 20px;
   width: 500px;
 }
 /* End Sign Up Form */
+
+/* Start Login Form Section */
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 81vh;
+}
+
+.login__content {
+  padding: 30px;
+  border: 1px solid #eee;
+  text-align: center;
+}
+
+.login__icon {
+  margin-bottom: 15px;
+}
+
+.login__icon i {
+  color: green;
+  font-size: 30px;
+}
+
+.login__links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.login__links a {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: green;
+  font-size: 14px;
+}
+
+/* End Login Form Section */
 
 /* Start Posts Section */
 .posts {

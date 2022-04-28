@@ -1,4 +1,3 @@
-<!-- Start Users Functions -->
 <?php
 
 function create_user($user_name, $user_password, $user_email, $first_name, $last_name, $user_role = "subscriber")
@@ -95,11 +94,6 @@ function login($db_user)
   $_SESSION['user_role'] = $db_user['user_role'];
 }
 
-?>
-<!-- End Users Functions -->
-
-<!-- Start Categories Functions -->
-<?php
 
 function create_category($category_title)
 {
@@ -137,12 +131,6 @@ function delete_category($category_id)
   $sql = "DELETE FROM categories WHERE category_id = $category_id";
   mysqli_query($connection, $sql);
 }
-
-?>
-<!-- End Categories Functions -->
-
-<!-- Start Posts Functions -->
-<?php
 
 function create_post($category_id, $post_author, $post_title, $post_content, $post_image, $post_tags, $post_status)
 {
@@ -229,12 +217,6 @@ function delete_post($post_id)
   mysqli_query($connection, $sql);
 }
 
-?>
-<!-- End Posts Functions -->
-
-<!-- Start Comments Functions -->
-<?php
-
 function create_comment($post_id, $comment_author, $comment_email, $comment_content)
 {
   global $connection;
@@ -290,12 +272,6 @@ function delete_comment($comment_id)
   mysqli_query($connection, $sql);
 }
 
-?>
-<!-- End Comments Functions -->
-
-<!-- Start Search Function -->
-<?php
-
 function search($keyword)
 {
   global $connection;
@@ -304,17 +280,8 @@ function search($keyword)
   return mysqli_fetch_all($query, MYSQLI_ASSOC);
 }
 
-?>
-<!-- End Search Function -->
-
-<!-- Start Escape Data Function -->
-<?php
-
 function escape($string)
 {
   global $connection;
   return mysqli_real_escape_string($connection, trim($string));
 }
-
-?>
-<!-- End Escape Data Function -->
