@@ -1,3 +1,4 @@
+
 <?php
 
 function create_user($user_name, $user_password, $user_email, $first_name, $last_name, $user_role = "subscriber")

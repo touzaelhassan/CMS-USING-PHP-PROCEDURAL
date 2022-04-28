@@ -1,7 +1,11 @@
-<?php session_start(); ?>
-<?php include './includes/DBConnection.php'; ?>
-<?php include './includes/functions.php'; ?>
+<?php
 
+include './includes/DBConnection.php';
+include './includes/functions.php';
+session_start();
+if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] != 'admin')  header('location: ../index.php');
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,14 +21,3 @@
 </head>
 
 <body>
-
-  <?php if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] != 'admin') : ?>
-
-    <section class="forbidden__section">
-      <div class="forbidden__links">
-        <a href="../../index.php">HOME</a>
-      </div>
-    </section>
-
-    <?php exit(); ?>
-  <?php endif; ?>
