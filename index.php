@@ -10,6 +10,7 @@ if (isset($_GET["page"])) {
 } else {
   $start_from = 0;
 }
+
 $posts_number = count(get_posts());
 $posts_number_per_page = 4;
 $page_number = ceil($posts_number / $posts_number_per_page);
@@ -31,7 +32,7 @@ $posts_of_this_page = get_posts_by_pagination($start_from, $posts_number_per_pag
         ?>
 
         <?php if ($post["post_status"] == "published") : ?>
-          <div class="post">
+          <div class="posts__post">
 
             <div class="post__image">
               <a href="post.php?post_id=<?php echo $post["post_id"] ?>">

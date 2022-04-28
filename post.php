@@ -11,7 +11,12 @@ if (isset($_GET["post_id"])) {
 
 ?>
 
-<?php $post = get_post_by_id($post_id); ?>
+<?php
+$post = get_post_by_id($post_id);
+$post_category_id = $post["category_id"];
+$post_category = get_category_by_id($post_category_id);
+$post_category_title = $post_category["category_title"];
+?>
 
 <?php $comments = get_approved_comments_by_post_id($post_id); ?>
 
@@ -32,13 +37,22 @@ if (isset($_POST["create_comment"])) {
 <div class="page">
   <div class="single__post">
     <div class="single__post__content">
-      <h2 class="post__title"><?php echo $post["post_title"]; ?></h2>
-      <p class="post__author"><?php echo $post["post_author"]; ?></p>
-      <p class="post__date"><?php echo $post["post_date"]; ?></p>
-      <div class="post__image">
+      <div class="single__post__header">
+        <span class="single__post__category">#<?php echo $post_category_title; ?></span>
+        <span>/</span>
+        <span class="single__post__date"><?php echo $post["post_date"]; ?></span>
+      </div>
+      <h1 class="single__post__title"><?php echo $post["post_title"]; ?></h1>
+      <div class="single__post__author">
+        <span class="single__post__author__image"></span>
+        <span class="single__post__name">
+          <?php echo $post["post_author"]; ?>
+        </span>
+      </div>
+      <div class="single__post__image">
         <img src="./images/<?php echo $post["post_image"]; ?>">
       </div>
-      <p class="post__content"><?php echo $post["post_content"]; ?></p>
+      <p class="single__post__text"><?php echo $post["post_content"]; ?></p>
     </div>
     <div class="single__post__comments">
       <div class="comments__form">
