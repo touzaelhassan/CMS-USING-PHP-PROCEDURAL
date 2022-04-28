@@ -23,18 +23,36 @@ $posts_of_this_page = get_posts_by_pagination($start_from, $posts_number_per_pag
   <div class="posts">
     <div class="posts__content">
       <?php foreach ($posts_of_this_page as $post) : ?>
+
+        <?php
+        $post_category_id = $post["category_id"];
+        $post_category = get_category_by_id($post_category_id);
+        $category_title = $post_category["category_title"];
+        ?>
+
         <?php if ($post["post_status"] == "published") : ?>
           <div class="post">
-            <h2 class="post__title"><a href="post.php?post_id=<?php echo $post["post_id"] ?>"><?php echo $post["post_title"]; ?></a></h2>
-            <a href="./author_posts.php?author=<?php echo $post['post_author']; ?>&post_id=<?php echo $post['post_id']; ?>" class="post__author"><?php echo $post["post_author"]; ?></a>
-            <p class="post__date"><?php echo $post["post_date"]; ?></p>
+
             <div class="post__image">
               <a href="post.php?post_id=<?php echo $post["post_id"] ?>">
                 <img src="./images/<?php echo $post["post_image"]; ?>">
               </a>
             </div>
-            <p class="post__content"><?php echo substr($post["post_content"], 0, 300); ?></p>
-            <a href="post.php?post_id=<?php echo $post["post_id"] ?>" class="post__link">READ MORE</a>
+
+            <div class="post__info">
+              <a href="category.php?category_id=<?php echo $category["category_id"]; ?>" class="post__category">#<?php echo $category_title; ?></a>
+              <h2 class="post__title"><a href="post.php?post_id=<?php echo $post["post_id"] ?>"><?php echo $post["post_title"]; ?></a></h2>
+              <div class="info__author">
+                <div class="author__image"></div>
+                <div class="author__data">
+                  <a href="./author_posts.php?author=<?php echo $post['post_author']; ?>&post_id=<?php echo $post['post_id']; ?>" class="post__author"><?php echo $post["post_author"]; ?></a>
+                  <p class="post__date"><?php echo $post["post_date"]; ?></p>
+                </div>
+              </div>
+              <p class="post__content"><?php echo substr($post["post_content"], 0, 160); ?></p>
+              <a href="post.php?post_id=<?php echo $post["post_id"] ?>" class="post__link">READ MORE</a>
+            </div>
+
           </div>
         <?php endif ?>
       <?php endforeach ?>

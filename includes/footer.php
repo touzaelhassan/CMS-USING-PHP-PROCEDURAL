@@ -1,5 +1,5 @@
 <footer class="footer">
   <div class="footer__content">
-    FOOTER
+    Copyright &copy; 2022 All right reserved
   </div>
 </footer>

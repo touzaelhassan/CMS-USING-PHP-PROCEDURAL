@@ -7,7 +7,7 @@
 <div class="sidebar__content">
   <div class="sidebar__search">
     <form action="./search.php" method="POST" class="search__form">
-      <input type="text" class="search__input" name="keyword">
+      <input type="text" class="search__input" name="keyword" placeholder="Search">
       <input type="submit" class="search__btn" value="SEARCH" name="search">
     </form>
   </div>
@@ -21,7 +21,7 @@
         <input type="password" class="form-control form__input" name="user_password" placeholder="Password">
       </div>
       <div class="form-group">
-        <input type="submit" class="form-control btn btn-primary form__btn" value="LOGIN" name="login">
+        <input type="submit" class="form-control btn  form__btn" value="LOGIN" name="login">
       </div>
     </form>
   </div>
