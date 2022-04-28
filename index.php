@@ -40,17 +40,24 @@ $posts_of_this_page = get_posts_by_pagination($start_from, $posts_number_per_pag
             </div>
 
             <div class="post__info">
-              <a href="category.php?category_id=<?php echo $category["category_id"]; ?>" class="post__category">#<?php echo $category_title; ?></a>
-              <h2 class="post__title"><a href="post.php?post_id=<?php echo $post["post_id"] ?>"><?php echo $post["post_title"]; ?></a></h2>
-              <div class="info__author">
-                <div class="author__image"></div>
-                <div class="author__data">
+
+              <div class="info__header">
+                <div class="info__author">
+                  <div class="author__image"></div>
                   <a href="./author_posts.php?author=<?php echo $post['post_author']; ?>&post_id=<?php echo $post['post_id']; ?>" class="post__author"><?php echo $post["post_author"]; ?></a>
-                  <p class="post__date"><?php echo $post["post_date"]; ?></p>
                 </div>
+                <a href="category.php?category_id=<?php echo $category["category_id"]; ?>" class="post__category">#<?php echo $category_title; ?></a>
               </div>
-              <p class="post__content"><?php echo substr($post["post_content"], 0, 160); ?></p>
-              <a href="post.php?post_id=<?php echo $post["post_id"] ?>" class="post__link">READ MORE</a>
+
+              <h2 class="post__title"><a href="post.php?post_id=<?php echo $post["post_id"] ?>"><?php echo $post["post_title"]; ?></a></h2>
+
+              <p class="post__content"><?php echo substr($post["post_content"], 0, 300); ?> ...</p>
+
+              <div class="info__footer">
+                <a href="post.php?post_id=<?php echo $post["post_id"] ?>" class="post__link">READ MORE</a>
+                <p class="post__date"><?php echo $post["post_date"]; ?></p>
+              </div>
+
             </div>
 
           </div>
