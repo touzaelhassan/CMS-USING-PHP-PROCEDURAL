@@ -33,13 +33,11 @@ $posts_of_this_page = get_posts_by_pagination($start_from, $posts_number_per_pag
 
         <?php if ($post["post_status"] == "published") : ?>
           <div class="posts__post">
-
             <div class="post__image">
               <a href="post.php?post_id=<?php echo $post["post_id"] ?>">
                 <img src="./images/<?php echo $post["post_image"]; ?>">
               </a>
             </div>
-
             <div class="post__info">
 
               <div class="info__header">
@@ -60,7 +58,6 @@ $posts_of_this_page = get_posts_by_pagination($start_from, $posts_number_per_pag
               </div>
 
             </div>
-
           </div>
         <?php endif ?>
       <?php endforeach ?>
