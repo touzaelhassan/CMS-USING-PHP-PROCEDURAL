@@ -9,9 +9,13 @@ if (isset($_POST["submit"])) {
   $subject = $_POST["subject"];
   $body = $_POST["body"];
 
-  echo "<pre>";
-  print_r($_POST);
-  echo "</pre>";
+  $headers = array(
+    'From' => $user_email,
+    'Reply-To' => $user_email,
+    'X-Mailer' => 'PHP/' . phpversion()
+  );
+
+  mail($to, $subject, $body, $headers);
 }
 
 ?>
