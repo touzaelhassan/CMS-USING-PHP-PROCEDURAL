@@ -29,5 +29,6 @@
     <?php if (isset($_SESSION["user_role"]) && $_SESSION['user_role'] == 'admin') : ?>
       <div class="admin"><a href="./admin/index.php">DASHBOARD</a></div>
     <?php endif ?>
+    <div class="contact-link"><a href="contact.php">CONTACT</a></div>
   </div>
 </header>
