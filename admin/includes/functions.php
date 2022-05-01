@@ -1,4 +1,3 @@
-
 <?php
 
 function create_user($user_name, $user_password, $user_email, $first_name, $last_name, $user_role = "subscriber")
@@ -145,7 +144,7 @@ function create_post($category_id, $post_author, $post_title, $post_content, $po
 function get_posts()
 {
   global $connection;
-  $sql = "SELECT * FROM posts";
+  $sql = "SELECT * FROM posts ";
   $query = mysqli_query($connection, $sql);
   return mysqli_fetch_all($query, MYSQLI_ASSOC);
 }
@@ -154,6 +153,14 @@ function get_posts_by_pagination($start_from, $posts_number_per_page)
 {
   global $connection;
   $sql = "SELECT * FROM posts LIMIT $start_from, $posts_number_per_page";
+  $query = mysqli_query($connection, $sql);
+  return mysqli_fetch_all($query, MYSQLI_ASSOC);
+}
+
+function get_posts_by_category_and_by_pagination($start_from, $posts_number_per_page, $category_id)
+{
+  global $connection;
+  $sql = "SELECT * FROM posts WHERE category_id = $category_id LIMIT $start_from, $posts_number_per_page";
   $query = mysqli_query($connection, $sql);
   return mysqli_fetch_all($query, MYSQLI_ASSOC);
 }

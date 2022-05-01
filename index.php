@@ -60,6 +60,7 @@ $posts_of_this_page = get_posts_by_pagination($start_from, $posts_number_per_pag
             </div>
           </div>
         <?php endif ?>
+
       <?php endforeach ?>
     </div>
     <div class="posts__pagination">
