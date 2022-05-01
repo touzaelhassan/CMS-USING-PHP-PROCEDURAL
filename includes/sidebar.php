@@ -12,19 +12,21 @@
     </form>
   </div>
 
-  <div class="sidebar__login">
-    <form action="includes/login.php" method="POST" class="login__form">
-      <div class="form-group">
-        <input type="text" class="form-control form__input" name="user_name" placeholder="Username">
-      </div>
-      <div class="form-group">
-        <input type="password" class="form-control form__input" name="user_password" placeholder="Password">
-      </div>
-      <div class="form-group">
-        <input type="submit" class="form-control btn  form__btn" value="LOGIN" name="login">
-      </div>
-    </form>
-  </div>
+  <?php if (!isset($_SESSION["user_id"])) : ?>
+    <div class="sidebar__login">
+      <form action="includes/login.php" method="POST" class="login__form">
+        <div class="form-group">
+          <input type="text" class="form-control form__input" name="user_name" placeholder="Username">
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control form__input" name="user_password" placeholder="Password">
+        </div>
+        <div class="form-group">
+          <input type="submit" class="form-control btn  form__btn" value="LOGIN" name="login">
+        </div>
+      </form>
+    </div>
+  <?php endif ?>
 
   <div class="sidebar__categories">
     <ul class="categories__list">

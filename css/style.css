@@ -50,6 +50,16 @@ a {
   padding: 25px 15px;
 }
 
+.nav__link:hover {
+  color: #fff;
+  background-color: #0d6efd;
+}
+
+.nav__link.active {
+  color: #fff;
+  background-color: #0d6efd;
+}
+
 .logout {
   letter-spacing: 1px;
 }
