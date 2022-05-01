@@ -38,9 +38,27 @@
           <td><?php echo $post["post_date"]; ?></td>
           <td><a href="../post.php?post_id=<?php echo $post["post_id"]; ?>" class="btn btn-info btn-sm">View</a></td>
           <td><a href="posts.php?source=update_post&update=<?php echo $post["post_id"]; ?>" class="btn btn-primary btn-sm">UPDATE</a></td>
-          <td><a href="posts.php?delete=<?php echo $post["post_id"]; ?>" class="btn btn-danger btn-sm">DELETE</a></td>
+          <!-- <td><a href="posts.php?delete=<?php //echo $post["post_id"]; 
+                                              ?>" class="btn btn-danger btn-sm">DELETE</a></td> -->
+          <td><button post-id="<?php echo $post['post_id'] ?>" class="delete-link btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModalCenter">Delete</button></td>
         </tr>
       <?php endforeach ?>
     </tbody>
   </table>
 </div>
+
+<?php include 'delete_modal.php'; ?>
+
+<script>
+  const deleteLinks = document.querySelectorAll('.delete-link');
+
+  deleteLinks.forEach((link) => {
+    link.addEventListener('click', function() {
+      const post_id = link.getAttribute("post-id");
+      const delete_url = `posts.php?delete=${post_id}`;
+      const modalDeleteBtn = document.querySelector('.modal-delete-btn');
+      modalDeleteBtn.setAttribute("href", delete_url);
+      console.log(modalDeleteBtn);
+    })
+  })
+</script>
