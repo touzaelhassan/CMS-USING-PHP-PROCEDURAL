@@ -89,17 +89,24 @@ function get_users_online()
   return mysqli_num_rows($query);
 }
 
+function user_name_exists($user_name)
+{
+  global $connection;
+  $sql = "SELECT * FROM users WHERE user_name = '$user_name'";
+  $query = mysqli_query($connection, $sql);
+  if (mysqli_fetch_assoc($query) != NULL) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function login($db_user)
 {
   $_SESSION['user_id'] = $db_user['user_id'];
   $_SESSION['user_name'] = $db_user['user_name'];
   $_SESSION['user_role'] = $db_user['user_role'];
 }
-
-function is_admin()
-{
-}
-
 
 // Start Categories Functions
 

@@ -16,6 +16,14 @@ if (isset($_POST["signup"])) {
   $first_name = escape($first_name);
   $last_name = escape($last_name);
 
+  if (user_name_exists($user_name)) {
+    echo "Username already exists";
+    exit();
+  } else {
+    echo "Gooddddd !!!";
+    exit();
+  }
+
   $user_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 12));
 
   if (!empty($user_name) && !empty($user_password) && !empty($user_email) && !empty($first_name) && !empty($last_name)) {
