@@ -101,6 +101,23 @@ function user_name_exists($user_name)
   }
 }
 
+function user_email_exists($user_email)
+{
+  global $connection;
+  $sql = "SELECT * FROM users WHERE user_email = '$user_email'";
+  $query = mysqli_query($connection, $sql);
+  if (mysqli_fetch_assoc($query) != NULL) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function signup($user_name, $user_password, $user_email, $first_name, $last_name)
+{
+  global $connection;
+}
+
 function login($db_user)
 {
   $_SESSION['user_id'] = $db_user['user_id'];

@@ -4,34 +4,49 @@
 
 if (isset($_POST["signup"])) {
 
-  $user_name = $_POST["user_name"];
-  $user_password = $_POST["user_password"];
-  $user_email = $_POST["user_email"];
-  $first_name = $_POST["first_name"];
-  $last_name = $_POST["last_name"];
+  $user_name = trim($_POST["user_name"]);
+  $user_password = trim($_POST["user_password"]);
+  $user_email = trim($_POST["user_email"]);
+  $first_name = trim($_POST["first_name"]);
+  $last_name = trim($_POST["last_name"]);
 
-  $user_name = escape($user_name);
-  $user_password = escape($user_password);
-  $user_email = escape($user_email);
-  $first_name = escape($first_name);
-  $last_name = escape($last_name);
+  $errors = [
+    'user_name' => '',
+    'user_password' => '',
+    'user_email' => '',
+    'first_name' => '',
+    'last_name' => '',
+  ];
 
-  if (user_name_exists($user_name)) {
-    echo "Username already exists";
-    exit();
-  } else {
-    echo "Gooddddd !!!";
-    exit();
+  if (empty($user_name)) {
+    $errors['user_name'] = 'Username can not be empty';
+  } else if (strlen($user_name) < 4) {
+    $errors['user_name'] = 'Username must be more than 3 characters';
+  } else if (user_name_exists($user_name)) {
+    $errors['user_name'] = 'Username already exists';
   }
 
-  $user_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 12));
-
-  if (!empty($user_name) && !empty($user_password) && !empty($user_email) && !empty($first_name) && !empty($last_name)) {
-    create_user($user_name, $user_password, $user_email, $first_name, $last_name);
-    $signup_success_message = "Your account has been created successfully.";
-  } else {
-    $signup_error_message = "Some fields are empty, please fill them.";
+  if (empty($user_email)) {
+    $errors['user_email'] = 'Email can not be empty';
+  } else if (!filter_var($user_email, FILTER_VALIDATE_EMAIL)) {
+    $errors['user_email'] = 'Please enter a valid email address !';
+  } else if (user_email_exists($user_email)) {
+    $errors['user_email'] = 'Email already exists';
   }
+
+  if (empty($user_password)) {
+    $errors['user_password'] = 'Password can not be empty';
+  } else if (strlen($user_password) < 6) {
+    $errors['user_password'] = 'Password must be more than 6 charactres';
+  }
+
+
+
+  echo "<pre>";
+  print_r($errors);
+  echo "</pre>";
+
+  exit();
 }
 
 ?>
