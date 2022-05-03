@@ -1,4 +1,5 @@
 <?php include './includes/head.php';
+if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] != 'admin')  header('location: ./index.php');
 $users_online_number = get_users_online();
 
 if (isset($_GET["source"])) {

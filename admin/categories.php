@@ -1,5 +1,5 @@
   <?php include './includes/head.php' ?>
-
+  <?php if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] != 'admin') header('location: ./index.php'); ?>
   <?php $users_online_number = get_users_online(); ?>
 
   <?php

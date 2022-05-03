@@ -1,5 +1,7 @@
 <?php
 
+// Start Users Functions
+
 function create_user($user_name, $user_password, $user_email, $first_name, $last_name, $user_role = "subscriber")
 {
   global $connection;
@@ -94,6 +96,12 @@ function login($db_user)
   $_SESSION['user_role'] = $db_user['user_role'];
 }
 
+function is_admin()
+{
+}
+
+
+// Start Categories Functions
 
 function create_category($category_title)
 {

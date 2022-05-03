@@ -13,6 +13,15 @@ if (isset($_GET["category_id"])) {
     <div class="logo"><a class="logo__link" href="index.php">CMS</a></div>
     <nav class="navigation me-auto">
       <ul class="nav__list">
+        <?php if (isset($_GET["category_id"])) : ?>
+          <li class="nav__item">
+            <a href="index.php" class="nav__link">Home</a>
+          </li>
+        <?php else : ?>
+          <li class="nav__item">
+            <a href="index.php" class="nav__link active">Home</a>
+          </li>
+        <?php endif ?>
         <?php foreach ($categories as $category) : ?>
           <?php if (isset($page_category_id) && $page_category_id == $category["category_id"]) : ?>
             <li class="nav__item">
@@ -40,7 +49,7 @@ if (isset($_GET["category_id"])) {
         <i class="fas fa-user"></i><span class="text-uppercase"><?php echo $_SESSION["user_name"]; ?></span>
       </div>
     <?php endif ?>
-    <?php if (isset($_SESSION["user_role"]) && $_SESSION['user_role'] == 'admin') : ?>
+    <?php if (isset($_SESSION["user_role"])) : ?>
       <div class="admin"><a href="./admin/index.php">DASHBOARD</a></div>
     <?php endif ?>
     <div class="contact-link"><a href="contact.php">CONTACT</a></div>
