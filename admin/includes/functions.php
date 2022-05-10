@@ -115,14 +115,43 @@ function user_email_exists($user_email)
 
 function signup($user_name, $user_password, $user_email, $first_name, $last_name)
 {
-  global $connection;
+
+  $user_name = escape($user_name);
+  $user_password = escape($user_password);
+  $user_email = escape($user_email);
+  $first_name = escape($first_name);
+  $last_name = escape($last_name);
+
+  $user_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 12));
+
+  if (!empty($user_name) && !empty($user_password) && !empty($user_email) && !empty($first_name) && !empty($last_name)) {
+    create_user($user_name, $user_password, $user_email, $first_name, $last_name);
+    return true;
+  } else {
+    return false;
+  }
 }
 
-function login($db_user)
+function login($user_name, $user_password)
 {
-  $_SESSION['user_id'] = $db_user['user_id'];
-  $_SESSION['user_name'] = $db_user['user_name'];
-  $_SESSION['user_role'] = $db_user['user_role'];
+
+  $user_name = escape($user_name);
+  $user_password = escape($user_password);
+
+  $db_user = get_user_by_user_name($user_name);
+
+  if ($db_user != NULL) {
+    $db_user_password = $db_user["user_password"];
+  }
+
+  if ($db_user != NULL && password_verify($user_password, $db_user_password)) {
+    $_SESSION['user_id'] = $db_user['user_id'];
+    $_SESSION['user_name'] = $db_user['user_name'];
+    $_SESSION['user_role'] = $db_user['user_role'];
+    return true;
+  } else {
+    return false;
+  }
 }
 
 // Start Categories Functions
